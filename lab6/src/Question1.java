@@ -76,6 +76,7 @@ public class Question1 extends Application {
 
         // Add root to Scene
         Scene scene = new Scene(root);
+        primaryStage.setTitle("Address Form");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
