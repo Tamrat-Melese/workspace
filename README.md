@@ -1,2 +1,2 @@
 # MPPRepository
-The repository for MPP Course of "Stars" group
+The repository for MPP Course of "Stars" group.
