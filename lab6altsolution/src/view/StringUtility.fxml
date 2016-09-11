@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<GridPane xmlns:fx="http://javafx.com/fxml"
+          fx:controller="controller.StringUtilityController"
+          alignment="CENTER" hgap="10">
+    <padding>
+        <Insets top="10" right="20" bottom="30" left="20" />
+    </padding>
+
+    <GridPane alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="0" vgap="10">
+        <Button text="Count Letters"
+                GridPane.columnIndex="0" GridPane.rowIndex="0"
+                onAction="#countLetters" />
+        <Button text="Reverse Letters"
+                GridPane.columnIndex="0" GridPane.rowIndex="1"
+                onAction="#reverseLetters" />
+        <Button text="Remove Duplicates"
+                GridPane.columnIndex="0" GridPane.rowIndex="2"
+                onAction="#removeDuplicates" />
+    </GridPane>
+
+    <GridPane alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <Label text="Input" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="tfInput" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Label text="Output" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="tfOutput" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+    </GridPane>
+
+    <stylesheets>
+        <URL value="@StringUtility.css" />
+    </stylesheets>
+</GridPane>
