@@ -13,9 +13,6 @@ import javafx.stage.Stage;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-/**
- * Created by anthony on 9/10/16.
- */
 public class Question2 extends Application {
     public static void main(String[] args) {
         Application.launch(args);

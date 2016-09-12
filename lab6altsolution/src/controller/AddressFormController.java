@@ -4,9 +4,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-/**
- * Created by anthony on 9/11/16.
- */
 public class AddressFormController {
     @FXML
     private TextField tfName;

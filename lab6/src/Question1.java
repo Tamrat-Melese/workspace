@@ -9,9 +9,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-/**
- * Created by anthony on 9/10/16.
- */
 public class Question1 extends Application {
     public static void main(String[] args) {
         Application.launch(args);

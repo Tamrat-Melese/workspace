@@ -7,9 +7,6 @@ import javafx.scene.control.TextField;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by anthony on 9/11/16.
- */
 public class StringUtilityController {
     @FXML
     private TextField tfInput;
@@ -29,7 +26,7 @@ public class StringUtilityController {
     @FXML
     private void removeDuplicates(ActionEvent event){
         char[] chars = tfInput.getText().toCharArray();
-        
+
         Set<Character> str = new HashSet<>();
         StringBuilder sb = new StringBuilder();
         for(char c : chars){
