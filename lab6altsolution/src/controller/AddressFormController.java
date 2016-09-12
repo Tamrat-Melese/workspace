@@ -21,8 +21,11 @@ public class AddressFormController {
 
     @FXML
     private void printAddress(ActionEvent event){
-        System.out.println(tfName.getText() + "\n" +
-                tfStreet.getText() + "\n" +
-                tfCity.getText() + ", " + tfState.getText() + " " + tfZip.getText());
+        StringBuilder builder = new StringBuilder();
+		builder.append(tfName.getText()).append("\n");
+		builder.append(tfStreet.getText()).append("\n");
+		builder.append(tfCity.getText()).append(tfState.getText());
+		builder.append(", ").append(tfZip.getText());
+		System.out.println(builder.toString());
     }
 }
