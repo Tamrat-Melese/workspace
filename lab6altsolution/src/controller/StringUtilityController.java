@@ -4,7 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-import java.util.LinkedHashSet;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -29,15 +29,13 @@ public class StringUtilityController {
     @FXML
     private void removeDuplicates(ActionEvent event){
         char[] chars = tfInput.getText().toCharArray();
-        Set<Character> str = new LinkedHashSet<>();
-
-        for(char c : chars){
-            str.add(c);
-        }
-
+        
+        Set<Character> str = new HashSet<>();
         StringBuilder sb = new StringBuilder();
-        for(char c : str){
-            sb.append(c);
+        for(char c : chars){
+            if (str.add(c)){
+            	sb.append(c);
+            }
         }
 
         tfOutput.setText(sb.toString());
