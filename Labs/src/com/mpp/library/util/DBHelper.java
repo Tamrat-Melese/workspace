@@ -1,6 +1,6 @@
 package com.mpp.library.util;
 
-import com.mpp.library.model.Book;
+import com.mpp.library.entity.Book;
 import com.mpp.library.view.BookFXTableView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

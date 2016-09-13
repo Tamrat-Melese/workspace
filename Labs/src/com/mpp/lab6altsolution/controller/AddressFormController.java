@@ -1,4 +1,4 @@
-package com.mpp.lab6altSolution.controller;
+package com.mpp.lab6altsolution.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -1,6 +1,6 @@
 package com.mpp.library.view;
 
-import com.mpp.library.model.Book;
+import com.mpp.library.entity.Book;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 

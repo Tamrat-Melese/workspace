@@ -1,4 +1,4 @@
-package com.mpp.library.model;
+package com.mpp.library.entity;
 
 public enum UserRole {
     ADMINISTRATOR, LIBRARYAN, MEMBER

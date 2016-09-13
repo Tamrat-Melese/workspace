@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 <GridPane xmlns:fx="http://javafx.com/fxml"
-          fx:controller="com.mpp.lab6altSolution.controller.StringUtilityController"
+          fx:controller="com.mpp.lab6altsolution.controller.StringUtilityController"
           alignment="CENTER" hgap="10">
     <padding>
         <Insets top="10" right="20" bottom="30" left="20" />

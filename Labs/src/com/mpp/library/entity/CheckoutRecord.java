@@ -1,4 +1,4 @@
-package com.mpp.library.model;
+package com.mpp.library.entity;
 
 import java.util.ArrayList;
 import java.util.List;

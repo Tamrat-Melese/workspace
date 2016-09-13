@@ -1,4 +1,4 @@
-package com.mpp.library.model;
+package com.mpp.library.entity;
 
 import com.mpp.library.role.UserRole;
 

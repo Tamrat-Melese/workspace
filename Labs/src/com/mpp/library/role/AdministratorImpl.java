@@ -1,7 +1,7 @@
 package com.mpp.library.role;
 
-import com.mpp.library.model.Book;
-import com.mpp.library.model.BookCopy;
+import com.mpp.library.entity.Book;
+import com.mpp.library.entity.BookCopy;
 
 public class AdministratorImpl implements AdministratorRole{
     @Override
