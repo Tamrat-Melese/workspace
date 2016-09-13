@@ -1,4 +1,4 @@
-package edu.mum.cs.cs401.dataaccess;
+package com.mpp.library.dataaccess;
 
 public interface DataAccess<K, V> {
 	public V add(K key, V value);
