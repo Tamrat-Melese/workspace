@@ -14,6 +14,7 @@ public class StringUtility extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("view/StringUtility.fxml"));
+
         Scene scene = new Scene(root);
         scene.getStylesheets().add(getClass().getResource("view/StringUtility.css").toExternalForm());
         primaryStage.setTitle("String Utility");

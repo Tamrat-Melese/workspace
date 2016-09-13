@@ -6,7 +6,7 @@ import com.mpp.library.model.BookCopy;
 public class AdministratorImpl implements AdministratorRole{
     @Override
     public AdministratorRole addBookCopyToBook(BookCopy bookCopy, Book book) {
-        book.addBookCopy(bookCopy);
+
         return this;
     }
 }

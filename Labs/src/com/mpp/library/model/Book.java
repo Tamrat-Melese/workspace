@@ -18,16 +18,6 @@ public class Book {
         bookCopies = new ArrayList<>();
     }
 
-    public Book addAuthor(Author a){
-        authors.add(a);
-        return this;
-    }
-
-    public Book addBookCopy(BookCopy bc){
-        bookCopies.add(bc);
-        return this;
-    }
-
     public String getTitle() {
         return title;
     }
