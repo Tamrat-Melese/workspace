@@ -23,5 +23,4 @@ public class LibraryApplication extends Application{
         primaryStage.show();
     }
 
-
 }

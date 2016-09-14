@@ -1,7 +1,6 @@
 package com.mpp.lab6altsolution.controller;
 
-/**
- * Created by anthony on 9/14/16.
- */
 public interface SceneResource {
+    public static String BOOK_VIEW = "../view/BooksView.fxml";
+    public static String ADD_BOOK_COPY_VIEW = "../view/NewBookCopyView.fxml";
 }
