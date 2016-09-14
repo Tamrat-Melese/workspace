@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" vgap="10" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mpp.library.controller.LoginController">
+<GridPane alignment="CENTER" vgap="10" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mpp.library.view.LoginUIController">
 
 	<children>
 		<AnchorPane prefHeight="100.0" prefWidth="463.0">
@@ -33,17 +33,12 @@
 				</Label>
 				<PasswordField fx:id="txtPassword" layoutX="120.0" layoutY="88.0" prefHeight="25.0" prefWidth="192.0" />
 
-				<Button layoutX="145.0" layoutY="130.0" onAction="#loginUser" prefHeight="25.0" prefWidth="71.0" text="Login" />
+				<Button layoutX="85.0" layoutY="128.0" onAction="#loginUser" prefHeight="25.0" prefWidth="71.0" text="Login" />
 
 				<Label layoutX="194.0" layoutY="142.0" prefHeight="17.0" prefWidth="153.0" />
+            <Label fx:id= "lblErrorMessage" layoutX="177.0" layoutY="127.0" prefHeight="25.0" prefWidth="209.0" text="" />
 			</children>
 		</AnchorPane>
 	</children>
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-   </rowConstraints>
 
 </GridPane>
