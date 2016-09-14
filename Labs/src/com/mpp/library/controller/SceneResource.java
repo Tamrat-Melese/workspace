@@ -8,5 +8,6 @@ public interface SceneResource {
 	String CHECKOUT_BOOK_SCENE_FXML = "../view/CheckoutBookForm.fxml";
 	String LOGIN_SCENE = "Login";
 	String LOGIN_SCENE_FXML = "Login.fxml";
+	String MAIN_VIEW__FXML = "../view/MainView.fxml";
 
 }

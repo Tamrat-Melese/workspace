@@ -57,7 +57,7 @@ public class MembersViewController implements Initializable{
     void goMemberAdd(ActionEvent event) throws IOException {
     	try {
 	    	Stage stage = (Stage) btnAddNewMember.getScene().getWindow();
-	    	Parent root = FXMLLoader.load(getClass().getResource("../"+Constant.MEMBERADD));
+	    	Parent root = FXMLLoader.load(getClass().getResource("../" + Constant.MEMBERADD));
 	        Scene scene = new Scene(root);
 		
 	    	stage.setScene(scene);

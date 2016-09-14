@@ -21,6 +21,9 @@
     <Label text="List of Copies" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
     <TableView fx:id="bookTableView" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+        <placeholder>
+            <Label text="Can't find your book!!!"/>
+        </placeholder>
         <columns>
             <TableColumn text="ISBN" minWidth="80" resizable="false">
                 <cellValueFactory>
