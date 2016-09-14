@@ -1,4 +1,4 @@
-package mpp.library.entity;
+package com.mpp.library.entity;
 
 public class Login {
 	private String username;

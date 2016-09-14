@@ -1,4 +1,4 @@
-package mpp.library.dataaccess;
+package com.mpp.library.dataaccess;
 
 public interface LoginDataAccess<K, V> {
 

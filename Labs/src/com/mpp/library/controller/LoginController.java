@@ -1,12 +1,12 @@
-package mpp.library.controller;
+package com.mpp.library.controller;
 
+import com.mpp.library.dataaccess.LoginDataAccess;
+import com.mpp.library.dataaccess.LoginDataAccessImpl;
+import com.mpp.library.entity.Login;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import mpp.library.dataaccess.LoginDataAccess;
-import mpp.library.dataaccess.LoginDataAccessImpl;
-import mpp.library.entity.Login;
 
 public class LoginController {
 
@@ -36,7 +36,7 @@ public class LoginController {
 
 	private static LoginController instance = new LoginController();
 
-	private LoginDataAccess<String, Login> dataAccess = new LoginDataAccessImpl<String, Login>();
+	private LoginDataAccess<String, Login> dataAccess = new LoginDataAccessImpl<>();
 
 	public LoginController() {
 	}

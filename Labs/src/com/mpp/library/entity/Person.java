@@ -1,7 +1,5 @@
 package com.mpp.library.entity;
 
-import com.mpp.library.role.UserRole;
-
 import java.util.HashSet;
 import java.util.Set;
 
