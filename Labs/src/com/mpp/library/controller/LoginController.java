@@ -1,57 +1,38 @@
 package mpp.library.controller;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import mpp.library.dataaccess.LoginDataAccess;
 import mpp.library.dataaccess.LoginDataAccessImpl;
-import mpp.library.entity.Login;
+import mpp.library.entity.UserAccount;
 
 public class LoginController {
 
-	@FXML
-	private Button login;
-
-	@FXML
-	private TextField txtUsername;
-
-	@FXML
-	private TextField txtPassword;
-
-	@FXML
-	private void loginUser(ActionEvent event) {
-		StringBuilder builder = new StringBuilder();
-		if (txtUsername.getText() != null && txtPassword.getText() != null) {
-
-			builder.append(txtUsername.getText()).append("\n");
-
-			builder.append(txtPassword.getText()).append("\n");
-
-			System.out.println(builder.toString());
-		} else {
-			// not done
-		}
-	}
-
+	private LoginDataAccess<String, UserAccount> dataAccess = new LoginDataAccessImpl<String, UserAccount>();
+	
 	private static LoginController instance = new LoginController();
 
-	private LoginDataAccess<String, Login> dataAccess = new LoginDataAccessImpl<String, Login>();
-
-	public LoginController() {
+	private LoginController() {
 	}
 
 	public static LoginController getInstance() {
 		return instance;
 	}
 
-	public Login addUser(Login user) {
-
-		return dataAccess.add(user.getPassword(), user);
+	public UserAccount addUser(UserAccount users) {
+		return dataAccess.add(users.getUsername(), users);
 	}
 
-	public Login getUser(String password) {
-		return dataAccess.get(password);
+	public UserAccount get(String username) {
+		return dataAccess.get(username);
+	}
+
+	public UserAccount login(String username, String password) {
+		UserAccount userAccount = dataAccess.get(username);
+		if (userAccount == null || !userAccount.getPassword().equalsIgnoreCase(password) ){
+			return null;
+		}
+		else {
+			return userAccount;
+		}
 	}
 
 }
