@@ -103,4 +103,13 @@ public class MembersViewController implements Initializable{
 
     	tblMemberList.setItems(personData);
 	}
+	
+	//Search by ID
+	public Person searchByID(String ID) {
+		for(Person item: personData){
+			if(item.getID().equalsIgnoreCase(ID))
+				return item;
+		}
+		return null;
+	}	
 }
