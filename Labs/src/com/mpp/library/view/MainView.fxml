@@ -3,21 +3,12 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.layout.*?>
-<GridPane xmlns:fx="http://javafx.com/fxml"
-          fx:controller="com.mpp.library.controller.MainViewController"
-          gridLinesVisible="true">
-    <TabPane fx:id="tabMenu" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.vgrow="ALWAYS" GridPane.hgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
-        <Tab fx:id="memberTab" text="Members" disable="true">
-            <GridPane fx:id="menuLayout" />
-        </Tab>
-        <Tab fx:id="bookTab" text="Books" disable="true">
-            <VBox>
-                <GridPane fx:id="bookLayout" gridLinesVisible="true" VBox.vgrow="ALWAYS"/>
-            </VBox>
-
-        </Tab>
-        <Tab fx:id="checkoutTab" text="Checkout" disable="true">
-            <GridPane fx:id="checkoutLayout" />
-        </Tab>
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.mpp.library.controller.MainViewController">
+    <TabPane tabClosingPolicy="UNAVAILABLE"
+             AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="0">
+        <Tab fx:id="memberTab" text="Members" disable="true" />
+        <Tab fx:id="bookTab" text="Books" disable="true"/>
+        <Tab fx:id="checkoutTab" text="Checkout" disable="true"/>
     </TabPane>
-</GridPane>
+</AnchorPane>

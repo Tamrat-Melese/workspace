@@ -1,5 +1,7 @@
 package com.mpp.library.entity;
 
+import javafx.beans.property.SimpleStringProperty;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,6 +25,10 @@ public class Person {
     public Person addRole(UserRole ur){
         roles.add(ur);
         return this;
+    }
+
+    public SimpleStringProperty address(){
+        return new SimpleStringProperty(address.toString());
     }
 
     public String getID() {

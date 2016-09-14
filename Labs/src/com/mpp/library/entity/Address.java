@@ -44,4 +44,12 @@ public class Address {
     public void setZip(String zip) {
         this.zip = zip;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(street).append(" ").append(city)
+                .append(", ").append(state).append(" ").append(zip);
+        return stringBuilder.toString();
+    }
 }

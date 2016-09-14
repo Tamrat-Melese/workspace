@@ -84,23 +84,6 @@ public class MembersViewController implements Initializable{
     		personData.add(hashMap.get(iter.next()));
     	}
 
-    	ID.setCellValueFactory(new PropertyValueFactory<Person,Integer>("ID"));
-
-    	firstName.setCellValueFactory( new PropertyValueFactory<Person,String>("firstName"));
-    	lastName.setCellValueFactory( new PropertyValueFactory<Person,String>("lastName"));
-    	phone.setCellValueFactory( new PropertyValueFactory<Person,String>("phoneNumber"));
-
-
-		street.setCellValueFactory(new Callback<CellDataFeatures<Person, String>, ObservableValue<String>>() {
-		     public ObservableValue<String> call(CellDataFeatures<Person, String> p) {
-		         String rStreet = p.getValue().getAddress().getStreet().trim() + " "
-		    	        		 + p.getValue().getAddress().getCity().trim() + " "
-		    	        		 + p.getValue().getAddress().getState().trim() + " "
-		    	        		 + p.getValue().getAddress().getZip().trim(); 
-		         return new SimpleStringProperty(rStreet);
-		     }
-		});
-
     	tblMemberList.setItems(personData);
 	}
 }

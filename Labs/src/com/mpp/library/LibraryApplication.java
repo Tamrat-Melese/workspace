@@ -22,7 +22,7 @@ public class LibraryApplication extends Application{
         primaryStage.setTitle("Library Management System");
         Person person = new Person("123","asdfsad","asdfasdf",new Address("","","",""),"123124");
         person.getRoles().add(UserRole.ADMINISTRATOR);
-        person.getRoles().add(UserRole.LIBRARYAN);
+        //person.getRoles().add(UserRole.LIBRARYAN);
         person.getRoles().add(UserRole.MEMBER);
         LoggedUser.getInstance().setPerson(person);
 
