@@ -4,29 +4,87 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
 <GridPane xmlns:fx="http://javafx.com/fxml"
           fx:controller="com.mpp.library.controller.BookController"
+          vgap="10" hgap="30"
           alignment="CENTER">
     <padding>
         <Insets top="10" right="10" bottom="10" left="10" />
     </padding>
-    <TableView fx:id="tableView" GridPane.rowIndex="0" GridPane.columnIndex="0">
+    <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" spacing="20" alignment="BASELINE_LEFT">
+        <Label text="Find Books" />
+        <TextField fx:id="tfSeach" />
+    </HBox>
+
+    <Label text="List of Copies" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+    <TableView fx:id="bookTableView" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
         <columns>
-            <TableColumn text="ISBN">
+            <TableColumn text="ISBN" minWidth="80" resizable="false">
                 <cellValueFactory>
-                    <PropertyValueFactory property="ISBN" />
+                    <PropertyValueFactory property="ISBN"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Title">
+            <TableColumn text="Title" fx:id="titleColumn" minWidth="90" resizable="false">
                 <cellValueFactory>
-                    <PropertyValueFactory property="title" />
+                    <PropertyValueFactory property="title"/>
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn text="Availability">
+            <TableColumn text="Authors" fx:id="authorsColumn" minWidth="90" resizable="false">
                 <cellValueFactory>
-                    <PropertyValueFactory property="availability" />
+                    <PropertyValueFactory property="author"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Availability" minWidth="90" resizable="false">
+                <cellValueFactory>
+                    <PropertyValueFactory property="availability"/>
+                </cellValueFactory>
+                <cellFactory>
+
+                </cellFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <TableView fx:id="copyTableView" GridPane.rowIndex="1" GridPane.columnIndex="1" mouseTransparent="true" GridPane.vgrow="ALWAYS">
+        <placeholder>
+            <Label text="Select a book on the list on the left"/>
+        </placeholder>
+        <columns>
+            <TableColumn text="Copy Number" prefWidth="100" resizable="false">
+                <cellValueFactory>
+                    <PropertyValueFactory property="copyNumber" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Borrow Duration" prefWidth="120" resizable="false">
+                <cellValueFactory>
+                    <PropertyValueFactory property="borrowDuration" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Status" prefWidth="100" resizable="false">
+                <cellValueFactory>
+                    <PropertyValueFactory property="status" />
                 </cellValueFactory>
             </TableColumn>
         </columns>
     </TableView>
+
+    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <Text text="Number of books: " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Text fx:id="tBookCount" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.hgrow="ALWAYS">
+            <Button text="Add a book" disable="true"/>
+        </HBox>
+    </GridPane>
+
+    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+
+        <Text text="Number of book copies: " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Text fx:id="tBookCopyCount" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.hgrow="ALWAYS">
+            <Button fx:id="addBookCopyButton" text="Add a copy" onAction="#onClickAdd"/>
+        </HBox>
+    </GridPane>
 </GridPane>

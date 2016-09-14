@@ -34,4 +34,12 @@ public class Author {
     public void setShortBio(String shortBio) {
         this.shortBio = shortBio;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("[").append(firstName)
+                .append(" ").append(lastName).append("]");
+        return stringBuilder.toString();
+    }
 }

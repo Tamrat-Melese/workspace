@@ -25,10 +25,15 @@ public class DataAccessImpl<K, V> implements DataAccess<K, V> {
 	public V delete(K key) {
 		return dataMap.remove(key);	
 	}
+
 	
 	@Override
 	public Map<K, V> getAll() {
-		// TODO Auto-generated method stub
+		return dataMap;
+	}
+
+	@Override
+	public Map<K, V> getDataMap(){
 		return dataMap;
 	}
 }

@@ -1,21 +1,54 @@
 package com.mpp.library.entity;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Book {
     private String title;
     private String ISBN;
-    private boolean availability;
-    private List<Author> authors;
+    private List<Author> authorList;
     private List<BookCopy> bookCopies;
 
-    public Book(String title, String ISBN, boolean availability) {
+    public Book(String title, String ISBN) {
         this.title = title;
         this.ISBN = ISBN;
-        this.availability = availability;
-        authors = new ArrayList<>();
-        bookCopies = new ArrayList<>();
+        this.authorList = new ArrayList<>();
+        this.bookCopies = new ArrayList<>();
+    }
+
+    public boolean addAuthor(Author author){
+        return authorList.add(author);
+    }
+
+    public boolean addBookCopy(BookCopy bookCopy){
+        return bookCopies.add(bookCopy);
+    }
+
+    public SimpleStringProperty titleProperty(){
+        return new SimpleStringProperty(title);
+    }
+
+    public SimpleStringProperty ISBNProperty(){
+        return new SimpleStringProperty(ISBN);
+    }
+
+    public SimpleStringProperty authorProperty(){
+        StringBuilder stringBuilder = new StringBuilder();
+        for(Author author : authorList){
+            stringBuilder.append(author.toString());
+        }
+        return new SimpleStringProperty(stringBuilder.toString());
+    }
+
+    public SimpleIntegerProperty availabilityProperty(){
+        int availability = 0;
+        for(BookCopy bookCopy : bookCopies){
+            if(bookCopy.isAvailability()) availability += 1;
+        }
+        return new SimpleIntegerProperty(availability);
     }
 
     public String getTitle() {
@@ -34,20 +67,12 @@ public class Book {
         this.ISBN = ISBN;
     }
 
-    public boolean isAvailability() {
-        return availability;
+    public List<Author> getAuthorList() {
+        return authorList;
     }
 
-    public void setAvailability(boolean availability) {
-        this.availability = availability;
-    }
-
-    public List<Author> getAuthors() {
-        return authors;
-    }
-
-    public void setAuthors(List<Author> authors) {
-        this.authors = authors;
+    public void setAuthorList(List<Author> authorList) {
+        this.authorList = authorList;
     }
 
     public List<BookCopy> getBookCopies() {
