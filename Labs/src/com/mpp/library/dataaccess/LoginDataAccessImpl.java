@@ -13,7 +13,6 @@ public class LoginDataAccessImpl<K, V> implements LoginDataAccess<K, V> {
 
 	@Override
 	public V add(K key, V value) {
-
 		return dataMap.put(key, value);
 	}
 }
