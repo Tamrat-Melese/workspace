@@ -1,6 +1,7 @@
 package com.mpp.library.stage;
 
-import com.mpp.library.dataaccess.TestData;
+import com.mpp.library.controller.BookController;
+//import com.mpp.library.dataaccess.TestData;
 import com.mpp.library.entity.Book;
 import com.mpp.library.entity.BookCopy;
 import com.mpp.library.ui.controller.SceneController;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 public class AddBookCopyStage extends Stage {
     private TableView<BookCopy> tableView;
     private Book selectedBook;
+    private BookController instance = BookController.getInstance();
 
     public AddBookCopyStage(Stage owner, TableView<BookCopy> tableView, Book selectedBook) throws Exception{
         this.tableView = tableView;
@@ -28,8 +30,7 @@ public class AddBookCopyStage extends Stage {
     }
 
     public void addBookCopy(String copyNumber){
-        BookCopy bookCopy = new BookCopy(selectedBook, copyNumber);
+        BookCopy bookCopy = instance.addBookCopy(selectedBook, copyNumber);
         tableView.getItems().add(bookCopy);
-        TestData.getInstanse().addNewBookCopy(selectedBook, bookCopy);
     }
 }

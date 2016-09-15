@@ -1,5 +1,6 @@
 package com.mpp.library.dataaccess;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,5 +30,10 @@ public class DataAccessImpl<K, V> implements DataAccess<K, V> {
 	@Override
 	public Map<K, V> getDataMap(){
 		return dataMap;
+	}
+
+	@Override
+	public Collection<V> getList() {
+		return dataMap.values();
 	}
 }

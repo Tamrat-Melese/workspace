@@ -5,6 +5,7 @@ import com.mpp.library.controller.CheckoutBookController;
 import com.mpp.library.controller.LoginController;
 import com.mpp.library.controller.UserController;
 import com.mpp.library.dataaccess.TestData;
+import com.mpp.library.entity.Book;
 import com.mpp.library.entity.CheckoutRecord;
 import com.mpp.library.entity.Person;
 import com.mpp.library.entity.UserAccount;
@@ -26,6 +27,7 @@ public class LibraryApplication extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle(SceneResource.APP_NAME);
+        
         Parent root = SceneController.getInstance().loadLayout(SceneResource.LOGIN_SCENE_FXML);
 
         Scene scene = new Scene(root);
@@ -37,6 +39,9 @@ public class LibraryApplication extends Application{
 
     }
 
+    /**
+     * initialize Test data
+     */
 	public static void initialize() {
 		TestData testData = new TestData();
 
@@ -56,11 +61,10 @@ public class LibraryApplication extends Application{
 		}
 
 		// create books
-		// TODO
 		BookController bookController = BookController.getInstance();
-//		for (Book book : testData.allBooks) {
-//			bookController.save(book);
-//		}
+		for (Book book : testData.allBooks) {
+			bookController.save(book);
+		}
 		
 		// create CheckoutEntry
 		CheckoutBookController checkoutBookController = CheckoutBookController.getInstance();

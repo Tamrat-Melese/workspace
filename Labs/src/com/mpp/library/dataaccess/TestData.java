@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import com.mpp.library.entity.Address;
 import com.mpp.library.entity.Author;
@@ -31,6 +32,8 @@ public class TestData {
 			add(new Address("501 Central", "Mountain View", "CA", "94707"));
 		}
 	};
+	
+	@SuppressWarnings("serial")
 	public final List<Author> allAuthors = new ArrayList<Author>() {
 		{
 			add(new Author("Joe", "Thomas", "A happy man is he."));
@@ -40,68 +43,9 @@ public class TestData {
 			add(new Author("Sarah", "Connor", "Known for her clever style."));
 		}
 	};
-	//Book(int id, String isbn, String title, int maxCheckoutLength, List<Author> authors)
-	public final List<Book> allBooks = new ArrayList<Book>() {
-		{
-			add(new Book("23-11451", "The Big Fish", 21, Arrays.asList(allAuthors.get(0), allAuthors.get(1))));
-			add(new Book("28-12331", "Antartica", 7, Arrays.asList(allAuthors.get(2))));
-			add(new Book("99-22223", "Thinking Java", 21, Arrays.asList(allAuthors.get(3))));
-			add(new Book("48-56882", "Jimmy's First Day of School", 7, Arrays.asList(allAuthors.get(4))));
-			
-		}
-	};
-	//CheckoutRecordEntry(LendableCopy copy, LocalDate checkoutDate, LocalDate dueDate)
-	public final List<CheckoutRecordEntry> allEntries = new ArrayList<CheckoutRecordEntry>() {
-		{
-			add(new CheckoutRecordEntry(
-				allBooks.get(0).getNextAvailableCopy(), LocalDate.of(2011,12,1), LocalDate.of(2011,12,22)));
-			add(new CheckoutRecordEntry(
-				allBooks.get(0).getNextAvailableCopy(), LocalDate.of(2015,6,22), LocalDate.of(2015,7,13)));
-			add(new CheckoutRecordEntry(
-				allBooks.get(1).getNextAvailableCopy(), LocalDate.of(2015,6,27), LocalDate.of(2015,7,18)));
-			add(new CheckoutRecordEntry(
-				allBooks.get(2).getNextAvailableCopy(), LocalDate.of(2015,6,27), LocalDate.of(2015,7,18)));
-			add(new CheckoutRecordEntry(
-				allBooks.get(2).getNextAvailableCopy(), LocalDate.of(2015,6,20), LocalDate.of(2015,6,27)));
-			add(new CheckoutRecordEntry(
-				allBooks.get(3).getNextAvailableCopy(), LocalDate.of(2015,6,22), LocalDate.of(2015,6,29)));
-			
-		}
-	};
-	
-	public final List<CheckoutRecord> allRecords = new ArrayList<CheckoutRecord>() {
-		{
-			add(new CheckoutRecord());
-			add(new CheckoutRecord());
-			add(new CheckoutRecord());
-			add(new CheckoutRecord());
-			add(new CheckoutRecord());
-			add(new CheckoutRecord());
-			add(new CheckoutRecord());
-		}
-	};
-	
-	///create books
-	public void bookData() {
-		allBooks.get(0).addCopy();
-		allBooks.get(0).addCopy();
-		allBooks.get(2).addCopy();
-		allBooks.get(2).addCopy();
-	}
-	/*
-	public void checkoutRecordData() {
-		allRecords.get(0).addEntry(allEntries.get(0));
-		allRecords.get(0).addEntry(allEntries.get(4));
-		allRecords.get(1).addEntry(allEntries.get(1));
-		allRecords.get(1).addEntry(allEntries.get(5));
-		allRecords.get(2).addEntry(allEntries.get(2));
-		allRecords.get(2).addEntry(allEntries.get(6));
-		allRecords.get(3).addEntry(allEntries.get(3));
-		allRecords.get(3).addEntry(allEntries.get(7));
-	}*/
 	
 	//create library members
-	//String memberId, String fname, String lname, String tel,Address add
+	@SuppressWarnings("serial")
 	public List<Person> persons = new ArrayList<Person>(){
 		{
 			Person person = new Person("1001", "Andy", "Rogers", addresses.get(4), "641-223-2211");
@@ -132,6 +76,7 @@ public class TestData {
 	};
     
     // User
+	@SuppressWarnings("serial")
 	public final ArrayList<UserAccount> userAccounts = new ArrayList<UserAccount>() {
 		{
 			add(new UserAccount(persons.get(0), "adminlib", "123"));
@@ -166,22 +111,81 @@ public class TestData {
         books.add(b1.getISBN(), b1);
         books.add(b2.getISBN(), b2);
     }
+	
+	//Book(int id, String isbn, String title, int maxCheckoutLength, List<Author> authors)
+	@SuppressWarnings("serial")
+	public final List<Book> allBooks = new ArrayList<Book>() {
+		{
+			add(new Book("23-11451", "The Big Fish", 21, Arrays.asList(allAuthors.get(0), allAuthors.get(1))));
+			add(new Book("28-12331", "Antartica", 7, Arrays.asList(allAuthors.get(2))));
+			add(new Book("99-22223", "Thinking Java", 21, Arrays.asList(allAuthors.get(3))));
+			add(new Book("48-56882", "Jimmy's First Day of School", 7, Arrays.asList(allAuthors.get(4))));
+			
+		}
+	};
+	
+	//create book copies
+	public void bookData() {
+		Random copyNumberGenerator = new Random();
+		int copyNumber = copyNumberGenerator.nextInt();
+		allBooks.get(0).addBookCopy(new BookCopy(allBooks.get(0), String.valueOf(copyNumber)));
+		copyNumber = copyNumberGenerator.nextInt();
+		allBooks.get(0).addBookCopy(new BookCopy(allBooks.get(0), String.valueOf(copyNumber)));
+		copyNumber = copyNumberGenerator.nextInt();
+		allBooks.get(2).addBookCopy(new BookCopy(allBooks.get(2), String.valueOf(copyNumber)));
+		copyNumber = copyNumberGenerator.nextInt();
+		allBooks.get(2).addBookCopy(new BookCopy(allBooks.get(2), String.valueOf(copyNumber)));
+	}
+	
+	//CheckoutRecordEntry(LendableCopy copy, LocalDate checkoutDate, LocalDate dueDate)
+	@SuppressWarnings("serial")
+	public final List<CheckoutRecordEntry> allEntries = new ArrayList<CheckoutRecordEntry>() {
+		{
+			add(new CheckoutRecordEntry(
+				allBooks.get(0).getNextAvailableCopy(), LocalDate.of(2011,12,1), LocalDate.of(2011,12,22)));
+			add(new CheckoutRecordEntry(
+				allBooks.get(0).getNextAvailableCopy(), LocalDate.of(2015,6,22), LocalDate.of(2015,7,13)));
+			add(new CheckoutRecordEntry(
+				allBooks.get(1).getNextAvailableCopy(), LocalDate.of(2015,6,27), LocalDate.of(2015,7,18)));
+			add(new CheckoutRecordEntry(
+				allBooks.get(2).getNextAvailableCopy(), LocalDate.of(2015,6,27), LocalDate.of(2015,7,18)));
+			add(new CheckoutRecordEntry(
+				allBooks.get(2).getNextAvailableCopy(), LocalDate.of(2015,6,20), LocalDate.of(2015,6,27)));
+			add(new CheckoutRecordEntry(
+				allBooks.get(3).getNextAvailableCopy(), LocalDate.of(2015,6,22), LocalDate.of(2015,6,29)));
+			
+		}
+	};
+	
+	@SuppressWarnings("serial")
+	public final List<CheckoutRecord> allRecords = new ArrayList<CheckoutRecord>() {
+		{
+			add(new CheckoutRecord());
+			add(new CheckoutRecord());
+			add(new CheckoutRecord());
+			add(new CheckoutRecord());
+			add(new CheckoutRecord());
+			add(new CheckoutRecord());
+			add(new CheckoutRecord());
+		}
+	};
 
-    public TestData(){}
-
+	
+	
+	/////////////////////////////////////////////////////////////
     public static TestData getInstanse() {
         return instanse;
     }
 
-    public void addNewBookCopy(Book book, BookCopy bookCopy){
-        book.addBookCopy(bookCopy);
-    }
+//    public void addNewBookCopy(Book book, BookCopy bookCopy){
+//        book.addBookCopy(bookCopy);
+//    }
 
-    public Book getBookByISBN(String ISBN){
-        return books.get(ISBN);
-    }
-
-    public DataAccess<String, Book> getBooks(){
-        return books;
-    }
+//    public Book getBookByISBN(String ISBN){
+//        return books.get(ISBN);
+//    }
+//
+//    public DataAccess<String, Book> getBooks(){
+//        return books;
+//    }
 }

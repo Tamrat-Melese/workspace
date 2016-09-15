@@ -5,7 +5,6 @@ import javafx.beans.property.SimpleStringProperty;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Book implements Entity {
     private String title;
@@ -13,7 +12,6 @@ public class Book implements Entity {
     private int borrowDuration;
     private List<Author> authorList;
     private List<BookCopy> bookCopies;
-    private Random copyNumberGenerator = new Random();
 
     public Book(String title, String ISBN, int borrowDuration) {
         this.title = title;
@@ -103,11 +101,6 @@ public class Book implements Entity {
     public void setAuthorList(List<Author> authorList) {
         this.authorList = authorList;
     }
-
-	public void addCopy() {
-		int copyNumber = copyNumberGenerator.nextInt();
-		bookCopies.add(new BookCopy(this, copyNumber));
-	}
 
     public List<BookCopy> getBookCopies() {
         return bookCopies;

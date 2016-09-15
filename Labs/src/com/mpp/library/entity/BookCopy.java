@@ -13,13 +13,6 @@ public class BookCopy {
         this.availability = true;
     }
 
-    public BookCopy(Book book, int copyNumber) {
-        this.book = book;
-        // TODO: copy number datatype
-//        this.copyNumber = copyNumber;
-        this.availability = true;
-    }
-
 	public SimpleStringProperty copyNumberProperty(){
         return new SimpleStringProperty(copyNumber);
     }

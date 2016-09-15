@@ -1,5 +1,6 @@
 package com.mpp.library.dataaccess;
 
+import java.util.Collection;
 import java.util.Map;
 
 public interface DataAccess<K, V> {
@@ -8,4 +9,5 @@ public interface DataAccess<K, V> {
 	public V get(K key);
 	public V delete(K key);
 	public Map<K, V> getDataMap();
+	public Collection<V> getList();
 }

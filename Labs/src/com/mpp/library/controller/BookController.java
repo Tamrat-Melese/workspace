@@ -1,6 +1,7 @@
 package com.mpp.library.controller;
 
 import com.mpp.library.entity.Book;
+import com.mpp.library.entity.BookCopy;
 
 public class BookController extends Controller<Book> {
 	
@@ -17,4 +18,12 @@ public class BookController extends Controller<Book> {
 	public Book searchBook(String ISBN) {
 		return get(ISBN);
 	}
+
+    public BookCopy addBookCopy(Book selectedBook,String copyNumber){
+        BookCopy bookCopy = new BookCopy(selectedBook, copyNumber);
+        selectedBook.addBookCopy(bookCopy);
+        save(selectedBook);
+        
+        return bookCopy;
+    }
 }

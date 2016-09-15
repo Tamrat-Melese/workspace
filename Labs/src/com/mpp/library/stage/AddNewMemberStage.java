@@ -1,5 +1,6 @@
 package com.mpp.library.stage;
 
+import com.mpp.library.controller.UserController;
 import com.mpp.library.entity.Person;
 import com.mpp.library.ui.controller.SceneController;
 import com.mpp.library.ui.controller.SceneResource;
@@ -12,6 +13,7 @@ import javafx.stage.Stage;
 
 public class AddNewMemberStage extends Stage{
     private TableView tableView;
+    private UserController userController = UserController.getInstance();
 
     public AddNewMemberStage(Stage owner, TableView tableView) throws Exception{
         this.tableView = tableView;
@@ -23,7 +25,7 @@ public class AddNewMemberStage extends Stage{
     }
 
     public void addMember(Person person){
+    	person = userController.save(person);
         tableView.getItems().add(person);
-        // TODO : Save person to database here
     }
 }

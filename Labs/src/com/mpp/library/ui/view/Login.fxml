@@ -17,7 +17,7 @@
     <TextField fx:id="txtUsername" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
     <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
-    <Button onAction="#loginUser" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <Button defaultButton="true" onAction="#loginUser" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
     <stylesheets>
         <URL value="@application.css" />
