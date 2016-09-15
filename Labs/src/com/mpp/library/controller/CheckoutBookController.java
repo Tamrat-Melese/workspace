@@ -40,7 +40,8 @@ public final class CheckoutBookController extends Controller<CheckoutRecord> {
 		}
 		
 
-		CheckoutRecord checkoutRecord = new CheckoutRecord(getUniqueID(), member);
+		String uniqueID = getUniqueID();
+		CheckoutRecord checkoutRecord = new CheckoutRecord(uniqueID, member);
 		member.addCheckoutRecord(checkoutRecord);
 		BookCopy bookCopy = book.getNextAvailableCopy();
 		
@@ -56,9 +57,7 @@ public final class CheckoutBookController extends Controller<CheckoutRecord> {
 		reserveBookCopy(bookCopy);
 		
 		save(checkoutRecord);
-		
-		System.out.println(checkoutRecord);
-		checkoutRecord = get(member.getID());
+		checkoutRecord = get(uniqueID);
 		return checkoutRecord;
 	}
 
