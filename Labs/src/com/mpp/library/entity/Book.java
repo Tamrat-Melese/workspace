@@ -10,7 +10,6 @@ public class Book implements Entity {
     private String title;
     private String ISBN;
     private int borrowDuration;
-    private SimpleIntegerProperty availability;
     private List<Author> authorList;
     private List<BookCopy> bookCopies;
 
@@ -20,7 +19,6 @@ public class Book implements Entity {
         this.borrowDuration = borrowDuration;
         this.authorList = new ArrayList<>();
         this.bookCopies = new ArrayList<>();
-        availability = new SimpleIntegerProperty(0);
     }
 
 	public Book(String ISBN, String title, int borrowDuration, List<Author> authors) {
@@ -40,9 +38,8 @@ public class Book implements Entity {
         return authorList.add(author);
     }
 
-    public void addBookCopy(BookCopy bookCopy){
-        bookCopies.add(bookCopy);
-        availability.add(1);
+    public boolean addBookCopy(BookCopy bookCopy){
+        return bookCopies.add(bookCopy);
     }
 
     public SimpleStringProperty titleProperty(){
@@ -63,10 +60,6 @@ public class Book implements Entity {
 
     public SimpleIntegerProperty borrowDurationProperty(){
         return new SimpleIntegerProperty(borrowDuration);
-    }
-
-    public SimpleIntegerProperty availabilityProperty(){
-        return availability;
     }
 
     public String getTitle() {

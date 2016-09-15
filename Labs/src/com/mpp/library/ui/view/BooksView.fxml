@@ -48,14 +48,6 @@
                         <PropertyValueFactory property="borrowDuration" />
                     </cellValueFactory>
                 </TableColumn>
-                <TableColumn text="Availability" minWidth="90" resizable="false">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="availability"/>
-                    </cellValueFactory>
-                    <cellFactory>
-
-                    </cellFactory>
-                </TableColumn>
             </columns>
         </TableView>
 
