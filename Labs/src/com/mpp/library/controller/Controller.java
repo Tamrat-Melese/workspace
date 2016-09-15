@@ -8,7 +8,7 @@ import com.mpp.library.entity.Entity;
 
 abstract class Controller<E extends Entity> {
 	public DataAccess<String, E> entitys = new DataAccessImpl<>();
-	private int uniqueID = 0; 
+	private int uniqueID = 1005; 
 
 	public Controller() {
 		super();

@@ -89,10 +89,10 @@ public class TestData {
 	@SuppressWarnings("serial")
 	public final List<Book> allBooks = new ArrayList<Book>() {
 		{
-			add(new Book("23-11451", "The Big Fish", 21, Arrays.asList(allAuthors.get(0), allAuthors.get(1))));
-			add(new Book("28-12331", "Antartica", 7, Arrays.asList(allAuthors.get(2))));
-			add(new Book("99-22223", "Thinking Java", 21, Arrays.asList(allAuthors.get(3))));
-			add(new Book("48-56882", "Jimmy's First Day of School", 7, Arrays.asList(allAuthors.get(4))));
+			add(new Book("11-12345", "The Big Fish", 21, Arrays.asList(allAuthors.get(0), allAuthors.get(1))));
+			add(new Book("12-23456", "Antartica", 7, Arrays.asList(allAuthors.get(2))));
+			add(new Book("13-34567", "Thinking Java", 21, Arrays.asList(allAuthors.get(3))));
+			add(new Book("14-45678", "Jimmy's First Day of School", 7, Arrays.asList(allAuthors.get(4))));
 			
 		}
 	};
@@ -100,14 +100,26 @@ public class TestData {
 	//create book copies
 	public void bookData() {
 		Random copyNumberGenerator = new Random();
-		int copyNumber = copyNumberGenerator.nextInt();
+		int copyNumber = copyNumberGenerator.nextInt(100);
 		allBooks.get(0).addBookCopy(new BookCopy(allBooks.get(0), String.valueOf(copyNumber)));
-		copyNumber = copyNumberGenerator.nextInt();
+		copyNumber = copyNumberGenerator.nextInt(100);
 		allBooks.get(0).addBookCopy(new BookCopy(allBooks.get(0), String.valueOf(copyNumber)));
-		copyNumber = copyNumberGenerator.nextInt();
+		copyNumber = copyNumberGenerator.nextInt(100);
+		allBooks.get(0).addBookCopy(new BookCopy(allBooks.get(0), String.valueOf(copyNumber)));
+		copyNumber = copyNumberGenerator.nextInt(100);
+		allBooks.get(1).addBookCopy(new BookCopy(allBooks.get(1), String.valueOf(copyNumber)));
+		copyNumber = copyNumberGenerator.nextInt(100);
+		allBooks.get(1).addBookCopy(new BookCopy(allBooks.get(1), String.valueOf(copyNumber)));
+		copyNumber = copyNumberGenerator.nextInt(100);
+		allBooks.get(1).addBookCopy(new BookCopy(allBooks.get(1), String.valueOf(copyNumber)));
+		copyNumber = copyNumberGenerator.nextInt(100);
 		allBooks.get(2).addBookCopy(new BookCopy(allBooks.get(2), String.valueOf(copyNumber)));
-		copyNumber = copyNumberGenerator.nextInt();
+		copyNumber = copyNumberGenerator.nextInt(100);
 		allBooks.get(2).addBookCopy(new BookCopy(allBooks.get(2), String.valueOf(copyNumber)));
+		copyNumber = copyNumberGenerator.nextInt(100);
+		allBooks.get(3).addBookCopy(new BookCopy(allBooks.get(3), String.valueOf(copyNumber)));
+		copyNumber = copyNumberGenerator.nextInt(100);
+		allBooks.get(3).addBookCopy(new BookCopy(allBooks.get(3), String.valueOf(copyNumber)));
 	}
 	
 	//CheckoutRecordEntry(LendableCopy copy, LocalDate checkoutDate, LocalDate dueDate)

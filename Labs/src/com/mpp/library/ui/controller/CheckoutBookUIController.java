@@ -4,7 +4,9 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 
 import com.mpp.library.controller.CheckoutBookController;
+import com.mpp.library.entity.Address;
 import com.mpp.library.entity.CheckoutRecord;
+import com.mpp.library.entity.Person;
 import com.mpp.library.ui.model.CheckoutEntryModel;
 import com.mpp.library.ui.model.adapter.CheckoutEntryAdapter;
 import javafx.collections.FXCollections;
@@ -57,11 +59,23 @@ public class CheckoutBookUIController {
 
 	@FXML
 	private void checkoutBook(ActionEvent event) {
-		System.out.println("checkoutBooks");
-
+//		System.out.println("checkoutBooks");
 		CheckoutRecord checkoutRecord;
 		try {
 			checkoutRecord = checkoutController.checkoutBooks(txtMemberID.getText(), txtISBN.getText());
+			Person member = checkoutRecord.getMember();
+			if (member != null){
+				// check the user
+				if (!member.getLastName().equals(txtName.getText())){
+					txtName.setText(member.getLastName());
+					Address address = member.getAddress();
+					if (address != null){					
+						txtAddress.setText(address.toString());
+					}
+				}
+			}
+
+			values.clear();
 			values.addAll(CheckoutEntryAdapter.toCheckoutEntryModels(checkoutRecord.getRecordEntries()));
 		} catch (Exception ex) {
 			Alert alert = new Alert(AlertType.ERROR);

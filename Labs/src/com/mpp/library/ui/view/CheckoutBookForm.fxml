@@ -23,7 +23,7 @@
             <TextField fx:id="txtMemberID" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
             <TextField fx:id="txtISBN" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
-            <Button onAction="#checkoutBook" text="Checkout" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+            <Button defaultButton="true" onAction="#checkoutBook" text="Checkout" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
 
             <Label text="Member Name" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
             <Label text="Address" GridPane.rowIndex="4" GridPane.columnIndex="0"/>

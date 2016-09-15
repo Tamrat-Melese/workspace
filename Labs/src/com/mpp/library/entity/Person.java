@@ -14,7 +14,12 @@ public class Person implements Entity {
     private Set<UserRole> roles;
     private CheckoutRecord checkoutRecord;
 
-    public Person(String ID, String firstName, String lastName, Address address, String phoneNumber) {
+    public Person(String iD) {
+		super();
+		ID = iD;
+	}
+
+	public Person(String ID, String firstName, String lastName, Address address, String phoneNumber) {
         this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -91,5 +96,30 @@ public class Person implements Entity {
 
 	public void setCheckoutRecord(CheckoutRecord checkoutRecord) {
 		this.checkoutRecord = checkoutRecord;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((ID == null) ? 0 : ID.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		if (ID == null) {
+			if (other.ID != null)
+				return false;
+		} else if (!ID.equals(other.ID))
+			return false;
+		return true;
 	}
 }
