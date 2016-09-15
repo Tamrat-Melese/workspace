@@ -19,8 +19,8 @@ public class BookController extends Controller<Book> {
 		return get(ISBN);
 	}
 
-    public BookCopy addBookCopy(Book selectedBook,String copyNumber, String borrowDuration){
-        BookCopy bookCopy = new BookCopy(selectedBook,Integer.parseInt(borrowDuration), copyNumber);
+    public BookCopy addBookCopy(Book selectedBook,String copyNumber){
+        BookCopy bookCopy = new BookCopy(selectedBook, copyNumber);
         selectedBook.addBookCopy(bookCopy);
         save(selectedBook);
         

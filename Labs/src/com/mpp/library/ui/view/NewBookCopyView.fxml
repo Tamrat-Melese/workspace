@@ -14,9 +14,8 @@
     </padding>
 
     <Label text="Copy Number" GridPane.rowIndex="0" GridPane.columnIndex="0" />
-    <Label text="Borrow Duration (days)" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+
     <TextField fx:id="tfCopyNumber" GridPane.rowIndex="0" GridPane.columnIndex="1" />
-    <TextField fx:id="tfBorrowDuration" GridPane.rowIndex="1" GridPane.columnIndex="1" />
 
     <HBox alignment="BASELINE_RIGHT" GridPane.rowIndex="2" GridPane.columnIndex="1" spacing="10">
         <Button text="Cancel" onAction="#onClickCancel" />

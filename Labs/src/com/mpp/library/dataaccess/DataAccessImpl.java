@@ -27,12 +27,6 @@ public class DataAccessImpl<K, V> implements DataAccess<K, V> {
 		return dataMap.remove(key);	
 	}
 
-	
-	@Override
-	public Map<K, V> getAll() {
-		return dataMap;
-	}
-
 	@Override
 	public Map<K, V> getDataMap(){
 		return dataMap;

@@ -7,12 +7,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TableView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainViewController implements Initializable{
 
+    @FXML
+    private TabPane tabPane;
     @FXML
     private Tab memberTab;
     @FXML
@@ -36,12 +40,14 @@ public class MainViewController implements Initializable{
 
         }
 
+        if(LoggedUser.getInstance().getPerson().getRoles().contains(UserRole.LIBRARYAN)){
+            checkoutTab.setDisable(false);
+            tabPane.getSelectionModel().select(checkoutTab);
+        }
         if(LoggedUser.getInstance().getPerson().getRoles().contains(UserRole.ADMINISTRATOR)){
             bookTab.setDisable(false);
             memberTab.setDisable(false);
-        }
-        if(LoggedUser.getInstance().getPerson().getRoles().contains(UserRole.LIBRARYAN)){
-            checkoutTab.setDisable(false);
+            tabPane.getSelectionModel().select(memberTab);
         }
     }
 }

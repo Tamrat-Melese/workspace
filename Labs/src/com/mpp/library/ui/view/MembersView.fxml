@@ -3,45 +3,56 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.geometry.Insets?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.mpp.library.ui.controller.MembersViewController">
-
-
-    <TableView fx:id="tblMemberList" layoutY="80.0" prefHeight="407.0" prefWidth="788.0"
-                 AnchorPane.bottomAnchor="100.0"
-                 AnchorPane.leftAnchor="25.0"
-                 AnchorPane.rightAnchor="25.0"
-                 AnchorPane.topAnchor="80.0">
-        <columns>
-          <TableColumn fx:id="ID" text="ID">
-              <cellValueFactory>
-                  <PropertyValueFactory property="ID"/>
-              </cellValueFactory>
-          </TableColumn>
-          <TableColumn fx:id="firstName" text="First Name">
-              <cellValueFactory>
-                  <PropertyValueFactory property="firstName"/>
-              </cellValueFactory>
-          </TableColumn>
-          <TableColumn fx:id="lastName" text="Last Name">
-              <cellValueFactory>
-                  <PropertyValueFactory property="lastName"/>
-              </cellValueFactory>
-          </TableColumn>
-          <TableColumn fx:id="street" text="Address">
-              <cellValueFactory>
-                  <PropertyValueFactory property="address"/>
-              </cellValueFactory>
-          </TableColumn>
-          <TableColumn fx:id="phone" text="Phone">
-              <cellValueFactory>
-                  <PropertyValueFactory property="phoneNumber"/>
-              </cellValueFactory>
-          </TableColumn>
-        </columns>
-      </TableView>
-      <Button fx:id="btnAddNewMember" onAction="#goMemberAdd" text="Add"
-              AnchorPane.bottomAnchor="25.0"
-              AnchorPane.rightAnchor="25.0" />
-      <Label text="Member List" AnchorPane.leftAnchor="25.0" />
+    <GridPane alignment="CENTER" vgap="10" hgap="10"
+              AnchorPane.topAnchor="0"
+              AnchorPane.rightAnchor="0"
+              AnchorPane.leftAnchor="0"
+              AnchorPane.bottomAnchor="0">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        <Label text="Member List" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+        <TableView fx:id="tblMemberList"
+                   GridPane.columnIndex="0"
+                   GridPane.rowIndex="1"
+                   GridPane.vgrow="ALWAYS"
+                   GridPane.hgrow="ALWAYS">
+            <placeholder>
+                <Label text="Don't have any member!!!"/>
+            </placeholder>
+            <columns>
+                <TableColumn fx:id="ID" text="ID" prefWidth="90" resizable="false">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="ID"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="firstName" text="First Name" prefWidth="110" resizable="false">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="firstName"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="lastName" text="Last Name" prefWidth="110" resizable="false">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="lastName"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="address" text="Address" minWidth="130">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="address"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="phone" text="Phone" prefWidth="130" resizable="false">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="phoneNumber"/>
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <HBox GridPane.rowIndex="2" GridPane.columnIndex="0" alignment="BASELINE_RIGHT">
+            <Button fx:id="btnAddNewMember" onAction="#goMemberAdd" text="Add"/>
+        </HBox>
+    </GridPane>
 </AnchorPane>

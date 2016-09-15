@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
@@ -19,12 +20,16 @@ public class MembersViewController {
 
     @FXML
     private Button btnAddNewMember;
+
+	@FXML
+	private TableColumn address;
     
     private UserController userController = UserController.getInstance();
     private ObservableList<Person> values = FXCollections.observableArrayList();
 
 	@FXML
 	private void initialize() {
+		address.prefWidthProperty().bind(tblMemberList.widthProperty().subtract(440));
 		values.addAll(userController.getAll());
 		tblMemberList.setItems(values);
 	}

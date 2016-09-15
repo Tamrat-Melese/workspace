@@ -11,7 +11,6 @@ import com.mpp.library.entity.Person;
 import com.mpp.library.entity.UserAccount;
 import com.mpp.library.ui.controller.SceneController;
 import com.mpp.library.ui.controller.SceneResource;
-
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -27,11 +26,15 @@ public class LibraryApplication extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Library Management System");
+        primaryStage.setTitle(SceneResource.APP_NAME);
+        
         Parent root = SceneController.getInstance().loadLayout(SceneResource.LOGIN_SCENE_FXML);
 
         Scene scene = new Scene(root);
-        primaryStage.setScene(scene);
+		//String css = getClass().getResource("ui/view/application.css").toExternalForm();
+		//scene.getStylesheets().add(css);
+		primaryStage.setResizable(false);
+		primaryStage.setScene(scene);
         primaryStage.show();
 
     }

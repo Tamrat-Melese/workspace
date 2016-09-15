@@ -49,7 +49,14 @@ public class MemberAddController implements Initializable{
 	private CheckBox cbMember;
 	
 	public void setData(){
-		String[] states = {"ALABAMA", "ALASKA", "AMERICAN SAMOA","ARIZONA","ARKANSAS","CALIFORNIA","COLORADO","CONNECTICUT","DELAWARE","DISTRICT OF COLUMBIA","FEDERATED STATES OF MICRONESIA","FLORIDA","GEORGIA","GUAM","HAWAII","IDAHO"};
+		String[] states = {"California", "Alabama", "Arkansas", "Arizona", "Alaska", "Colorado",
+				"Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois",
+				"Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts",
+				"Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada",
+				"New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota",
+				"Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
+				"Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin",
+				"Wyoming"};
 		cmbState.getItems().clear();
 		cmbState.getItems().addAll(states);
 		cmbState.setValue(states[0]);

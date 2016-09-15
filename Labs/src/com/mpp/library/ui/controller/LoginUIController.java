@@ -39,11 +39,16 @@ public class LoginUIController {
 			UserAccount userAccount = instance.login(txtUsername.getText(), txtPassword.getText());
 			LoggedUser.getInstance().setPerson(userAccount.getPerson());
 			
-			 Parent root = SceneController.getInstance().loadLayout(SceneResource.MAIN_VIEW_FXML);
-		     Scene scene = new Scene(root);
-		     Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		     primaryStage.setScene(scene);
-		     primaryStage.show();
+			Parent root = SceneController.getInstance().loadLayout(SceneResource.MAIN_VIEW_FXML);
+			Scene scene = new Scene(root);
+
+			Stage mainStage = new Stage();
+			mainStage.setTitle(SceneResource.APP_NAME);
+			mainStage.setScene(scene);
+			mainStage.show();
+
+			Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			primaryStage.close();
 		}
 		else {
 			lblErrorMessage.setText("Password or username error");
