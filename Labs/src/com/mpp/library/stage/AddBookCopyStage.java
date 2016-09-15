@@ -3,7 +3,9 @@ package com.mpp.library.stage;
 import com.mpp.library.dataaccess.TestData;
 import com.mpp.library.entity.Book;
 import com.mpp.library.entity.BookCopy;
-import javafx.fxml.FXMLLoader;
+import com.mpp.library.ui.controller.SceneController;
+import com.mpp.library.ui.controller.SceneResource;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableView;
@@ -18,7 +20,7 @@ public class AddBookCopyStage extends Stage {
         this.tableView = tableView;
         this.selectedBook = selectedBook;
         setTitle("Add new book copy");
-        Parent root = FXMLLoader.load(getClass().getResource("../view/NewBookCopyView.fxml"));
+        Parent root = SceneController.getInstance().loadLayout(SceneResource.NEW_BOOKCOPY_FXML);
         Scene scene = new Scene(root);
         setScene(scene);
         initModality(Modality.WINDOW_MODAL);

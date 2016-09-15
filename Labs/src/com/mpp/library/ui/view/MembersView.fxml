@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.mpp.library.ui.controller.MembersViewController">
+
+
+    <TableView fx:id="tblMemberList" layoutY="80.0" prefHeight="407.0" prefWidth="788.0"
+                 AnchorPane.bottomAnchor="100.0"
+                 AnchorPane.leftAnchor="25.0"
+                 AnchorPane.rightAnchor="25.0"
+                 AnchorPane.topAnchor="80.0">
+        <columns>
+          <TableColumn fx:id="ID" text="ID">
+              <cellValueFactory>
+                  <PropertyValueFactory property="ID"/>
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn fx:id="firstName" text="First Name">
+              <cellValueFactory>
+                  <PropertyValueFactory property="firstName"/>
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn fx:id="lastName" text="Last Name">
+              <cellValueFactory>
+                  <PropertyValueFactory property="lastName"/>
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn fx:id="street" text="Address">
+              <cellValueFactory>
+                  <PropertyValueFactory property="address"/>
+              </cellValueFactory>
+          </TableColumn>
+          <TableColumn fx:id="phone" text="Phone">
+              <cellValueFactory>
+                  <PropertyValueFactory property="phoneNumber"/>
+              </cellValueFactory>
+          </TableColumn>
+        </columns>
+      </TableView>
+      <Button fx:id="btnAddNewMember" onAction="#goMemberAdd" text="Add"
+              AnchorPane.bottomAnchor="25.0"
+              AnchorPane.rightAnchor="25.0" />
+      <Label text="Member List" AnchorPane.leftAnchor="25.0" />
+</AnchorPane>

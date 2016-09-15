@@ -5,13 +5,14 @@ import javafx.beans.property.SimpleStringProperty;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Person {
+public class Person implements Entity {
     private String ID;
     private String firstName;
     private String lastName;
     private Address address;
     private String phoneNumber;
     private Set<UserRole> roles;
+    private CheckoutRecord checkoutRecord;
 
     public Person(String ID, String firstName, String lastName, Address address, String phoneNumber) {
         this.ID = ID;
@@ -31,6 +32,7 @@ public class Person {
         return new SimpleStringProperty(address.toString());
     }
 
+    @Override
     public String getID() {
         return ID;
     }
@@ -78,4 +80,16 @@ public class Person {
     public void setRoles(Set<UserRole> roles) {
         this.roles = roles;
     }
+
+	public void addCheckoutRecord(CheckoutRecord checkoutRecord) {
+		this.checkoutRecord = checkoutRecord;
+	}
+
+	public CheckoutRecord getCheckoutRecord() {
+		return checkoutRecord;
+	}
+
+	public void setCheckoutRecord(CheckoutRecord checkoutRecord) {
+		this.checkoutRecord = checkoutRecord;
+	}
 }

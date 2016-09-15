@@ -5,12 +5,15 @@ import javafx.beans.property.SimpleStringProperty;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-public class Book {
+public class Book implements Entity {
     private String title;
     private String ISBN;
+    private int borrowDuration;
     private List<Author> authorList;
     private List<BookCopy> bookCopies;
+    private Random copyNumberGenerator = new Random();
 
     public Book(String title, String ISBN) {
         this.title = title;
@@ -18,6 +21,19 @@ public class Book {
         this.authorList = new ArrayList<>();
         this.bookCopies = new ArrayList<>();
     }
+
+	public Book(String ISBN, String title, int borrowDuration, List<Author> authors) {
+		this.ISBN = ISBN;
+		this.title = title;
+		this.borrowDuration = borrowDuration;
+		this.authorList = authors;
+		bookCopies = new ArrayList<>();
+	}
+
+	@Override
+	public String getID() {
+		return ISBN;
+	}
 
     public boolean addAuthor(Author author){
         return authorList.add(author);
@@ -67,6 +83,14 @@ public class Book {
         this.ISBN = ISBN;
     }
 
+	public int getBorrowDuration() {
+		return borrowDuration;
+	}
+
+	public void setBorrowDuration(int borrowDuration) {
+		this.borrowDuration = borrowDuration;
+	}
+
     public List<Author> getAuthorList() {
         return authorList;
     }
@@ -75,6 +99,11 @@ public class Book {
         this.authorList = authorList;
     }
 
+	public void addCopy() {
+		int copyNumber = copyNumberGenerator.nextInt();
+		bookCopies.add(new BookCopy(this, copyNumber));
+	}
+
     public List<BookCopy> getBookCopies() {
         return bookCopies;
     }
@@ -82,4 +111,25 @@ public class Book {
     public void setBookCopies(List<BookCopy> bookCopies) {
         this.bookCopies = bookCopies;
     }
+
+	public int availability() {
+        int availability = 0;
+        for(BookCopy bookCopy : bookCopies){
+            if(bookCopy.isAvailability()) availability += 1;
+        }
+        return availability;
+	}
+	
+	public boolean isAvailabile() {
+		return (availability() > 0);
+	}
+
+	public BookCopy getNextAvailableCopy() {
+		for(BookCopy bookCopy : bookCopies){
+            if(bookCopy.isAvailability()){
+            	return bookCopy;
+            }
+        }
+		return null;
+	}
 }

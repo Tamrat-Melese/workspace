@@ -1,4 +1,4 @@
-package com.mpp.library.controller;
+package com.mpp.library.ui.controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

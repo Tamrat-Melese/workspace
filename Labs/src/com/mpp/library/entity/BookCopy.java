@@ -1,6 +1,5 @@
 package com.mpp.library.entity;
 
-import com.mpp.library.util.Constant;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -14,10 +13,17 @@ public class BookCopy {
         this.book = book;
         this.borrowDuration = borrowDuration;
         this.copyNumber = copyNumber;
-        this.availability = Constant.AVAILABLE;
+        this.availability = true;
     }
 
-    public SimpleStringProperty copyNumberProperty(){
+    public BookCopy(Book book, int copyNumber) {
+        this.book = book;
+        // TODO: copy number datatype
+//        this.copyNumber = copyNumber;
+        this.availability = true;
+    }
+
+	public SimpleStringProperty copyNumberProperty(){
         return new SimpleStringProperty(copyNumber);
     }
 

@@ -1,6 +1,6 @@
 package com.mpp.library.entity;
 
-public class UserAccount {
+public class UserAccount implements Entity {
     private Person person;
     private String username;
     private String password;
@@ -10,6 +10,11 @@ public class UserAccount {
         this.username = username;
         this.password = password;
     }
+
+	@Override
+	public String getID() {
+		return username;
+	}
 
     public Person getPerson() {
         return person;

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.cell.PropertyValueFactory ?>
+
+<GridPane alignment="CENTER" vgap="10" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mpp.library.ui.controller.CheckoutBookUIController">
+	<children>
+		<GridPane alignment="CENTER" hgap="10" GridPane.columnIndex="0"
+			GridPane.rowIndex="0">
+			<children>
+				<Label text="Member ID" GridPane.rowIndex="0" />
+				<TextField fx:id="txtMemberID" GridPane.columnIndex="1"
+					GridPane.rowIndex="0" />
+				<Label text="ISBN" GridPane.rowIndex="1" />
+				<TextField fx:id="txtISBN" GridPane.columnIndex="1"
+					GridPane.rowIndex="1" />
+				<Button onAction="#checkoutBook" text="Checkout Book"
+					GridPane.columnIndex="2" GridPane.rowIndex="1" />
+
+				<Label text="Member Name" GridPane.rowIndex="3" />
+				<Text fx:id="txtName" strokeType="OUTSIDE" strokeWidth="0.0"
+					GridPane.columnIndex="1" GridPane.rowIndex="3" />
+				<Label text="Address" GridPane.rowIndex="4" />
+				<Text fx:id="txtAddress" strokeType="OUTSIDE" strokeWidth="0.0"
+					GridPane.columnIndex="1" GridPane.rowIndex="4" />
+			</children>
+		</GridPane>
+		<GridPane alignment="CENTER" hgap="10" GridPane.columnIndex="0"
+			GridPane.rowIndex="2">
+			<children>
+				<TableView fx:id="checkoutEntryTable" prefHeight="200.0"
+					prefWidth="396.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+					<columns>
+						<TableColumn prefWidth="75.0" text="Isbn" >
+							<cellValueFactory>
+								<PropertyValueFactory property="isbn" />
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn prefWidth="104.0" text="Title" >
+							<cellValueFactory>
+								<PropertyValueFactory property="title" />
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn prefWidth="97.0" text="Checkout Date" >
+							<cellValueFactory>
+								<PropertyValueFactory property="checkoutDate" />
+							</cellValueFactory>
+						</TableColumn>
+						<TableColumn prefWidth="65.0" text="Due Date">
+							<cellValueFactory>
+								<PropertyValueFactory property="dueDate" />
+							</cellValueFactory>
+						</TableColumn>
+					</columns>
+				</TableView>
+			</children>
+		</GridPane>
+	</children>
+</GridPane>
