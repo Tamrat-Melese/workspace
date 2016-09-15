@@ -62,14 +62,6 @@ public class Book implements Entity {
         return new SimpleIntegerProperty(borrowDuration);
     }
 
-    public SimpleIntegerProperty availabilityProperty(){
-        int availability = 0;
-        for(BookCopy bookCopy : bookCopies){
-            if(bookCopy.isAvailability()) availability += 1;
-        }
-        return new SimpleIntegerProperty(availability);
-    }
-
     public String getTitle() {
         return title;
     }
