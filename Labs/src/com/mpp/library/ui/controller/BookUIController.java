@@ -1,14 +1,14 @@
 package com.mpp.library.ui.controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import com.mpp.library.entity.Book;
 import com.mpp.library.stage.AddBookCopyStage;
 import com.mpp.library.ui.view.FXHelper;
 
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -17,14 +17,15 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Callback;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class BookUIController implements Initializable{
     @FXML

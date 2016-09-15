@@ -1,15 +1,17 @@
 package com.mpp.library.ui.view;
 
-import com.mpp.library.dataaccess.TestData;
+import com.mpp.library.controller.BookController;
 import com.mpp.library.entity.Book;
 import com.mpp.library.entity.BookCopy;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class FXHelper {
+	
     public static ObservableList<Book> getObserverListOfBook(){
         ObservableList<Book> result = FXCollections.observableArrayList();
-        for(Book book : TestData.getInstanse().getBooks().getDataMap().values()){
+        BookController bookController = BookController.getInstance();
+        for(Book book : bookController.getAll()){
             result.add(book);
         }
         return result;

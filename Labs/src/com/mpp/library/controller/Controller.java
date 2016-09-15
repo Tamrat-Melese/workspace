@@ -1,5 +1,7 @@
 package com.mpp.library.controller;
 
+import java.util.Collection;
+
 import com.mpp.library.dataaccess.DataAccess;
 import com.mpp.library.dataaccess.DataAccessImpl;
 import com.mpp.library.entity.Entity;
@@ -24,6 +26,11 @@ abstract class Controller<E extends Entity> {
 	
 	public E get(String key) {
 		return entitys.get(key);
+	}
+	
+	
+	public Collection<E> getAll() {
+		return entitys.getList();
 	}
 
 	

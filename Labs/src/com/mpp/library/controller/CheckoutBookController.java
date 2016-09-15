@@ -26,8 +26,7 @@ public final class CheckoutBookController extends Controller<CheckoutRecord> {
 		Person member = userController.searchMember(memberID);
 		
 		if (member == null){
-			// TODO
-			throw new Exception();
+			throw new Exception("Libray Member not found with ID= "+ memberID);
 		}
 		// TODO: ID
 		CheckoutRecord checkoutRecord = new CheckoutRecord(member.getID(), member);
@@ -37,12 +36,10 @@ public final class CheckoutBookController extends Controller<CheckoutRecord> {
 		Book book = bookController.searchBook(isbn);
 		
 		if (book== null){
-			// TODO
-			throw new Exception();
+			throw new Exception("Book not found with ISBN= "+ isbn);
 		}
 		if (!book.isAvailabile()){
-			// TDOD
-			throw new Exception();
+			throw new Exception("BookCopy not available with ISBN= "+ isbn);
 		}
 		BookCopy bookCopy = book.getNextAvailableCopy();
 		
