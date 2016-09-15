@@ -16,6 +16,7 @@ public class AddNewMemberStage extends Stage{
     private UserController userController = UserController.getInstance();
 
     public AddNewMemberStage(Stage owner, TableView tableView) throws Exception{
+        super();
         this.tableView = tableView;
         Parent root = SceneController.getInstance().loadLayout(SceneResource.MEMBER_ADD_FXML);
         Scene scene = new Scene(root);

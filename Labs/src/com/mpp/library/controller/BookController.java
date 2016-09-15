@@ -26,4 +26,11 @@ public class BookController extends Controller<Book> {
         
         return bookCopy;
     }
+
+    public Book addBook(String ISBN, String title, int borrowDuration){
+		Book book = new Book(title, ISBN, borrowDuration);
+		save(book);
+
+		return book;
+	}
 }

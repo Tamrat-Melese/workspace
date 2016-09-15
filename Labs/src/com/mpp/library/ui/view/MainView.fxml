@@ -1,18 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.mpp.library.ui.controller.MainViewController">
+
+    <GridPane id="background-color" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+              prefHeight="80">
+        <HBox GridPane.columnIndex="0" GridPane.rowIndex="0" alignment="CENTER_LEFT" GridPane.vgrow="ALWAYS">
+            <padding>
+                <Insets left="10" />
+            </padding>
+            <Label id="title-text" text="Library Management System"/>
+        </HBox>
+        <HBox GridPane.columnIndex="1" GridPane.rowIndex="0" alignment="CENTER_RIGHT" GridPane.hgrow="ALWAYS" spacing="10">
+            <padding>
+                <Insets right="10"/>
+            </padding>
+            <Label id="login-text" fx:id="welcomeText"/>
+            <Button text="Logout" onAction="#logout"/>
+        </HBox>
+    </GridPane>
+
     <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE"
-             AnchorPane.topAnchor="0"
+             AnchorPane.topAnchor="80"
              AnchorPane.rightAnchor="0"
              AnchorPane.leftAnchor="0"
              AnchorPane.bottomAnchor="0">
-        <Tab fx:id="memberTab" text="Members" disable="true" />
-        <Tab fx:id="bookTab" text="Books" disable="true"/>
+        <Tab fx:id="memberTab" text="Members" disable="true"/>
+        <Tab fx:id="bookTab" text="Books" disable="true" onSelectionChanged="#updateBookTab"/>
         <Tab fx:id="checkoutTab" text="Checkout" disable="true"/>
     </TabPane>
 

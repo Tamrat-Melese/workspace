@@ -62,6 +62,10 @@ public class Book implements Entity {
         return new SimpleIntegerProperty(borrowDuration);
     }
 
+    public SimpleIntegerProperty availabilityProperty(){
+        return new SimpleIntegerProperty(availability());
+    }
+
     public String getTitle() {
         return title;
     }

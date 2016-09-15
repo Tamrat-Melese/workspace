@@ -19,6 +19,7 @@ public class AddBookCopyStage extends Stage {
     private BookController instance = BookController.getInstance();
 
     public AddBookCopyStage(Stage owner, TableView<BookCopy> tableView, Book selectedBook) throws Exception{
+        super();
         this.tableView = tableView;
         this.selectedBook = selectedBook;
         setTitle("Add new book copy");

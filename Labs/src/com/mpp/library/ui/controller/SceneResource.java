@@ -7,6 +7,7 @@ public interface SceneResource {
 	String MEMBER_ADD_FXML = "../view/MemberAdd.fxml";
 	String MEMBER_VIEW_FXML = "../view/MembersView.fxml";
 	String BOOK_SCENE_FXML = "../view/BooksView.fxml";
+	String NEW_BOOK_FXML = "../view/NewBookView.fxml";
 	String NEW_BOOKCOPY_FXML = "../view/NewBookCopyView.fxml";
 	String CHECKOUT_BOOK_FXML = "../view/CheckoutBookForm.fxml";
 

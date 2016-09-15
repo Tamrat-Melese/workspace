@@ -48,6 +48,11 @@
                         <PropertyValueFactory property="borrowDuration" />
                     </cellValueFactory>
                 </TableColumn>
+                <TableColumn text="Availability" prefWidth="90" resizable="false">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="availability" />
+                    </cellValueFactory>
+                </TableColumn>
             </columns>
         </TableView>
 
@@ -72,8 +77,9 @@
         <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2">
             <Text text="# of books: " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
             <Text fx:id="tBookCount" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-            <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.hgrow="ALWAYS">
-                <Button text="Add a book" disable="true"/>
+            <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.hgrow="ALWAYS" spacing="10">
+                <Button fx:id="addAuthorButton" text="Add Author" onAction="#addAuthor" disable="true"/>
+                <Button text="Add a book" onAction="#addBook"/>
             </HBox>
         </GridPane>
 
@@ -82,7 +88,7 @@
             <Text text="# of copies: " GridPane.columnIndex="0" GridPane.rowIndex="0"/>
             <Text fx:id="tBookCopyCount" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
             <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.hgrow="ALWAYS">
-                <Button fx:id="addBookCopyButton" text="Add a copy" onAction="#onClickAdd"/>
+                <Button fx:id="addBookCopyButton" text="Add a copy" onAction="#addBookCopy"/>
             </HBox>
         </GridPane>
     </GridPane>

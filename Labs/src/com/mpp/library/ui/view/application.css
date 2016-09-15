@@ -1,7 +1,7 @@
-/*.root {
-    -fx-background-image: url("background.jpg");
+#background-color {
+    -fx-background-color: #C5623B;
 }
-*/
+
 #login-label {
     -fx-font-size: 12px;
     -fx-font-weight: bold;
@@ -19,4 +19,14 @@
 #register-label{
     -fx-font-size: 24px;
     -fx-font-weight: bold;
+}
+
+#title-text {
+    -fx-font-size: 30px;
+    -fx-font-weight: bold;
+    -fx-text-fill: aliceblue;
+}
+
+#login-text {
+    -fx-text-fill: aliceblue;
 }

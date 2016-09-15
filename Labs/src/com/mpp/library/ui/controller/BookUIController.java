@@ -5,6 +5,8 @@ import java.util.ResourceBundle;
 
 import com.mpp.library.entity.Book;
 import com.mpp.library.stage.AddBookCopyStage;
+import com.mpp.library.stage.AddBookStage;
+import com.mpp.library.stage.MainStage;
 import com.mpp.library.ui.view.FXHelper;
 
 import javafx.beans.binding.Bindings;
@@ -41,6 +43,8 @@ public class BookUIController implements Initializable{
     @FXML
     private Button addBookCopyButton;
     @FXML
+    private Button addAuthorButton;
+    @FXML
     private TextField tfSeach;
 
     @FXML
@@ -55,10 +59,8 @@ public class BookUIController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         setClickableRowForBookTable();
 
-        titleColumn.prefWidthProperty().bind(bookTableView.widthProperty().subtract(202).divide(2));
-        authorsColumn.prefWidthProperty().bind(bookTableView.widthProperty().subtract(202).divide(2));
-
-
+        titleColumn.prefWidthProperty().bind(bookTableView.widthProperty().subtract(292).divide(2));
+        authorsColumn.prefWidthProperty().bind(bookTableView.widthProperty().subtract(292).divide(2));
 
         setBookTableData();
 
@@ -123,10 +125,22 @@ public class BookUIController implements Initializable{
     }
 
     @FXML
-    private void onClickAdd(ActionEvent event) throws Exception{
+    private void addBookCopy(ActionEvent event) throws Exception{
         Stage primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
         AddBookCopyStage stage = new AddBookCopyStage(primaryStage, copyTableView, selectedBook);
         stage.show();
+    }
+
+    @FXML
+    private void addBook(ActionEvent event) throws Exception{
+        MainStage mainStage = (MainStage) ((Node)event.getSource()).getScene().getWindow();
+        AddBookStage newStage = new AddBookStage(mainStage);
+        newStage.show();
+    }
+
+    @FXML
+    private void addAuthor(ActionEvent event){
+        // TODO: Add author
     }
 }

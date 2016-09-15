@@ -7,6 +7,9 @@ import com.mpp.library.controller.LoginController;
 import com.mpp.library.entity.LoggedUser;
 import com.mpp.library.entity.UserAccount;
 
+import com.mpp.library.stage.MainStage;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -39,12 +42,6 @@ public class LoginUIController implements Initializable{
 
 	@FXML
 	private Label lblErrorMessage;
-	
-	@FXML
-	private Label lblUsernameError;
-	
-	@FXML
-	private Label lblPasswordError;
 
 	@FXML
 	private void loginUser(ActionEvent event) throws Exception {
@@ -53,13 +50,8 @@ public class LoginUIController implements Initializable{
 			userAccount = instance.login(txtUsername.getText(), txtPassword.getText());
 			if (userAccount != null) {
 				LoggedUser.getInstance().setPerson(userAccount.getPerson());
-				
-				Parent root = SceneController.getInstance().loadLayout(SceneResource.MAIN_VIEW_FXML);
-				Scene scene = new Scene(root);
 
-				Stage mainStage = new Stage();
-				mainStage.setTitle(SceneResource.APP_NAME);
-				mainStage.setScene(scene);
+				MainStage mainStage = new MainStage();
 				mainStage.show();
 
 				Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -68,7 +60,7 @@ public class LoginUIController implements Initializable{
 		}
 		
 		if (userAccount == null) {
-			setMessage(lblErrorMessage, "Password or username error", Color.RED);
+			setMessage(lblErrorMessage, "Password and Username does not match", Color.RED);
 		}
 
 	}
@@ -77,8 +69,8 @@ public class LoginUIController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		String[] messErrorUserName = {"Username cannot blank.", "Username length is at least 3"};
 		String[] messErrorPassword = {"Password cannot blank.", "Password length is at least 3"};
-		checkValidTextField(txtUsername, lblUsernameError, messErrorUserName);
-		checkValidTextField(txtPassword, lblPasswordError, messErrorPassword);
+		checkValidTextField(txtUsername, lblErrorMessage, messErrorUserName);
+		checkValidTextField(txtPassword, lblErrorMessage, messErrorPassword);
 	}
 	
 	// Start validation
@@ -95,7 +87,6 @@ public class LoginUIController implements Initializable{
 	}
 	
 	public void checkValidTextField(TextField txtField, Label lblField, String[] mess) {
-		
 		txtField.focusedProperty().addListener((observable, oldValue, newValue) -> {
 			if (txtField.isFocused() == false) {
 				if (!isEmpty(txtField.getText().trim())) {
@@ -107,6 +98,16 @@ public class LoginUIController implements Initializable{
 				}else {
 					lblField.setVisible(false);
 					lblField.setText("");
+				}
+			}
+		});
+		txtField.textProperty().addListener(new ChangeListener<String>() {
+			@Override
+			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+				if(txtUsername.getText().trim().length()<3 || txtPassword.getText().trim().length() < 3){
+					login.setDisable(true);
+				} else {
+					login.setDisable(false);
 				}
 			}
 		});
