@@ -18,7 +18,7 @@
     <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
     <Button defaultButton="true" onAction="#loginUser" text="Login" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-
+    <Label fx:id= "lblErrorMessage" text="" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
     <stylesheets>
         <URL value="@application.css" />
     </stylesheets>

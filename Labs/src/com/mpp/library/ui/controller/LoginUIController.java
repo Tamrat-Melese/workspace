@@ -35,22 +35,26 @@ public class LoginUIController {
 
 	@FXML
 	private void loginUser(ActionEvent event) throws Exception {
+		UserAccount userAccount = null;
 		if (txtUsername.getText() != null && txtPassword.getText() != null) {
-			UserAccount userAccount = instance.login(txtUsername.getText(), txtPassword.getText());
-			LoggedUser.getInstance().setPerson(userAccount.getPerson());
-			
-			Parent root = SceneController.getInstance().loadLayout(SceneResource.MAIN_VIEW_FXML);
-			Scene scene = new Scene(root);
+			userAccount = instance.login(txtUsername.getText(), txtPassword.getText());
+			if (userAccount != null) {
+				LoggedUser.getInstance().setPerson(userAccount.getPerson());
+				
+				Parent root = SceneController.getInstance().loadLayout(SceneResource.MAIN_VIEW_FXML);
+				Scene scene = new Scene(root);
 
-			Stage mainStage = new Stage();
-			mainStage.setTitle(SceneResource.APP_NAME);
-			mainStage.setScene(scene);
-			mainStage.show();
+				Stage mainStage = new Stage();
+				mainStage.setTitle(SceneResource.APP_NAME);
+				mainStage.setScene(scene);
+				mainStage.show();
 
-			Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			primaryStage.close();
+				Stage primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				primaryStage.close();
+			}
 		}
-		else {
+		
+		if (userAccount == null) {
 			lblErrorMessage.setText("Password or username error");
 		}
 
