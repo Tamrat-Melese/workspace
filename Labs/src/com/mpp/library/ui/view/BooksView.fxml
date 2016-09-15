@@ -43,6 +43,11 @@
                         <PropertyValueFactory property="author"/>
                     </cellValueFactory>
                 </TableColumn>
+                <TableColumn text="Borrow Duration" prefWidth="120" resizable="false">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="borrowDuration" />
+                    </cellValueFactory>
+                </TableColumn>
                 <TableColumn text="Availability" minWidth="90" resizable="false">
                     <cellValueFactory>
                         <PropertyValueFactory property="availability"/>
@@ -62,11 +67,6 @@
                 <TableColumn text="Copy Number" prefWidth="100" resizable="false">
                     <cellValueFactory>
                         <PropertyValueFactory property="copyNumber" />
-                    </cellValueFactory>
-                </TableColumn>
-                <TableColumn text="Borrow Duration" prefWidth="120" resizable="false">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="borrowDuration" />
                     </cellValueFactory>
                 </TableColumn>
                 <TableColumn text="Status" prefWidth="100" resizable="false">

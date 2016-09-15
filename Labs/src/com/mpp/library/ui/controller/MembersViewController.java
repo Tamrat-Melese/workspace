@@ -35,5 +35,6 @@ public class MembersViewController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		address.prefWidthProperty().bind(tblMemberList.widthProperty().subtract(440));
 		// TODO: get person in database
+
 	}
 }

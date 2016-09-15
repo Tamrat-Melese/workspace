@@ -54,8 +54,8 @@ public class BookUIController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         setClickableRowForBookTable();
 
-        titleColumn.prefWidthProperty().bind(bookTableView.widthProperty().subtract(180).divide(2));
-        authorsColumn.prefWidthProperty().bind(bookTableView.widthProperty().subtract(180).divide(2));
+        titleColumn.prefWidthProperty().bind(bookTableView.widthProperty().subtract(300).divide(2));
+        authorsColumn.prefWidthProperty().bind(bookTableView.widthProperty().subtract(300).divide(2));
 
         setBookTableData();
 

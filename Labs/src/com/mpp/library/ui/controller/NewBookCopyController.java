@@ -15,14 +15,12 @@ import java.util.ResourceBundle;
 public class NewBookCopyController implements Initializable{
     @FXML
     private TextField tfCopyNumber;
-    @FXML
-    private TextField tfBorrowDuration;
 
     @FXML
     private void onClickAdd(ActionEvent event){
         AddBookCopyStage stage = (AddBookCopyStage) ((Node)event.getSource()).getScene().getWindow();
 
-        stage.addBookCopy(tfCopyNumber.getText(), tfBorrowDuration.getText());
+        stage.addBookCopy(tfCopyNumber.getText());
         stage.close();
     }
 
@@ -34,11 +32,11 @@ public class NewBookCopyController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        tfBorrowDuration.textProperty().addListener(new ChangeListener<String>() {
+        tfCopyNumber.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!newValue.matches("\\d*")) {
-                    tfBorrowDuration.setText(newValue.replaceAll("[^\\d]", ""));
+                    tfCopyNumber.setText(newValue.replaceAll("[^\\d]", ""));
                 }
             }
         });

@@ -27,8 +27,8 @@ public class AddBookCopyStage extends Stage {
         initOwner(owner);
     }
 
-    public void addBookCopy(String copyNumber, String borrowDuration){
-        BookCopy bookCopy = new BookCopy(selectedBook,Integer.parseInt(borrowDuration), copyNumber);
+    public void addBookCopy(String copyNumber){
+        BookCopy bookCopy = new BookCopy(selectedBook, copyNumber);
         tableView.getItems().add(bookCopy);
         TestData.getInstanse().addNewBookCopy(selectedBook, bookCopy);
     }

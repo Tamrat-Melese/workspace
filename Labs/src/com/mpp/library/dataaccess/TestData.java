@@ -144,23 +144,23 @@ public class TestData {
 	
     private static DataAccess<String, Book> books = new DataAccessImpl<>();
     static {
-        Book b1 = new Book("Book 1", "123456");
+        Book b1 = new Book("Book 1", "123456",21);
         Author a1 = new Author("Clark", "Ken", "He is the Supperman");
         b1.addAuthor(a1);
 
-        BookCopy bc1 = new BookCopy(b1, 21, "1111111");
+        BookCopy bc1 = new BookCopy(b1, "1111111");
         bc1.setAvailability(false);
         b1.addBookCopy(bc1);
-        BookCopy bc2 = new BookCopy(b1, 7, "2222222");
+        BookCopy bc2 = new BookCopy(b1, "2222222");
         b1.addBookCopy(bc2);
 
 
-        Book b2 = new Book("Book 2", "654321");
+        Book b2 = new Book("Book 2", "654321", 7);
         Author a2 = new Author("An", "Nguyen", "He is the one code this project");
         b2.addAuthor(a2);
         b2.addAuthor(a1);
 
-        BookCopy bc3 = new BookCopy(b2, 21, "3333333");
+        BookCopy bc3 = new BookCopy(b2, "3333333");
         b2.addBookCopy(bc3);
 
         books.add(b1.getISBN(), b1);
