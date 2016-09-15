@@ -58,6 +58,8 @@ public class BookUIController implements Initializable{
         titleColumn.prefWidthProperty().bind(bookTableView.widthProperty().subtract(300).divide(2));
         authorsColumn.prefWidthProperty().bind(bookTableView.widthProperty().subtract(300).divide(2));
 
+
+
         setBookTableData();
 
         BooleanBinding activate = Bindings.isEmpty(bookTableView.getSelectionModel().getSelectedItems());
