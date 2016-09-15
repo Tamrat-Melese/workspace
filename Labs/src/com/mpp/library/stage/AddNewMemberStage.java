@@ -25,7 +25,7 @@ public class AddNewMemberStage extends Stage{
     }
 
     public void addMember(Person person){
-    	person = userController.save(person);
+        userController.save(person);
         tableView.getItems().add(person);
     }
 }

@@ -88,6 +88,7 @@ public class MemberAddController implements Initializable{
 		String vfirstName = txtFirstName.getText();
 		String vlastName = txtLastName.getText();
 		String vphoneNumber = txtPhone.getText();
+
 		Person person = new Person(vmemberId, vfirstName, vlastName, address, vphoneNumber);
 		//Start Role
 		Set roles = new HashSet<>();
