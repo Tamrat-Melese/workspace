@@ -44,9 +44,6 @@ public class LibraryApplication extends Application{
      */
 	public static void initialize() {
 		TestData testData = new TestData();
-
-		// create copies
-		testData.bookData();
 		
 		// create persons
 		UserController userController = UserController.getInstance();
@@ -65,6 +62,9 @@ public class LibraryApplication extends Application{
 		for (Book book : testData.allBooks) {
 			bookController.save(book);
 		}
+
+		// create copies
+		testData.bookData();
 		
 		// create CheckoutEntry
 		CheckoutBookController checkoutBookController = CheckoutBookController.getInstance();
