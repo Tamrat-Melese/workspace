@@ -29,7 +29,7 @@ public class MembersViewController {
 
 	@FXML
 	private void initialize() {
-		address.prefWidthProperty().bind(tblMemberList.widthProperty().subtract(440));
+		address.prefWidthProperty().bind(tblMemberList.widthProperty().subtract(442));
 		values.addAll(userController.getAll());
 		tblMemberList.setItems(values);
 	}
