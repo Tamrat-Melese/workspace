@@ -1,6 +1,12 @@
 package com.mpp.library.ui.controller;
 
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.HashSet;
+import java.util.ResourceBundle;
+import java.util.Set;
+
 import com.mpp.library.controller.UserController;
 import com.mpp.library.entity.Address;
 import com.mpp.library.entity.Person;
@@ -10,15 +16,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.HashSet;
-import java.util.ResourceBundle;
-import java.util.Set;
+import javafx.scene.paint.Color;
 
 public class MemberAddController implements Initializable{
 	@FXML
@@ -49,6 +53,24 @@ public class MemberAddController implements Initializable{
 	@FXML
 	private CheckBox cbMember;
 	
+	@FXML
+	private Label lblFirstNameError;
+
+	@FXML
+	private Label lblLastNameError;
+
+	@FXML
+	private Label lblStreetError;
+
+	@FXML
+	private Label lblCityError;
+
+	@FXML
+	private Label lblZipError;
+
+	@FXML
+	private Label lblPhoneError;	
+	
 	private UserController userController = UserController.getInstance();
 	
 	public void setData(){
@@ -68,6 +90,13 @@ public class MemberAddController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		setData();
+		
+		checkValidTextField(txtFirstName, lblFirstNameError);
+		checkValidTextField(txtLastName, lblLastNameError);
+		checkValidTextField(txtCity, lblCityError);
+		checkValidTextField(txtPhone, lblPhoneError);
+		checkValidTextField(txtStreet, lblStreetError);
+		checkValidTextField(txtZip, lblZipError);
 	}
 	
 	@FXML
@@ -78,6 +107,9 @@ public class MemberAddController implements Initializable{
 	
 	@FXML
 	void addMember(ActionEvent event) throws IOException {
+		if (!isEmpty(lblFirstNameError.getText()) && !isEmpty(lblCityError.getText())
+				&& !isEmpty(lblLastNameError.getText()) && !isEmpty(lblPhoneError.getText())
+				&& !isEmpty(lblStreetError.getText()) && !isEmpty(lblZipError.getText())) {
 		String vstreet = txtStreet.getText();
 		String vcity = txtCity.getText();
 		String vstate = cmbState.getSelectionModel().getSelectedItem().toString();
@@ -104,6 +136,51 @@ public class MemberAddController implements Initializable{
 		AddNewMemberStage stage = (AddNewMemberStage)((Node)event.getSource()).getScene().getWindow();
 		stage.addMember(person);
 		stage.close();
+		} else {
+			showDialog("Error Input", "Error", "Please input correct all value!");
+		}
 	}
-}
 
+	// Start validation
+	public boolean isEmpty(String txt) {
+		if (txt.isEmpty())
+			return false;
+		return true;
+	}
+
+	public boolean isNumber(String text) {
+		return text.trim().matches("-?\\d+(\\.\\d+)?"); // match a number with optional '-' and decimal.
+	}
+
+	public void checkValidTextField(TextField txtField, Label lblField) {
+
+		txtField.focusedProperty().addListener((observable, oldValue, newValue) -> {
+			if (txtField.isFocused() == false) {
+				if (!isEmpty(txtField.getText().trim())) {
+					lblField.setVisible(true);
+					setMessage(lblField, "You can't leave this empty.", Color.RED);
+				} else if ((txtField.getId().equals(txtZip.getId()) || txtField.getId().equals(txtPhone.getId()))
+						&& !isNumber(txtField.getText().trim())) {
+					setMessage(lblField, "Please input number", Color.RED);
+				} else {
+					lblField.setVisible(false);
+					lblField.setText("");
+				}
+			}
+		});
+	}
+
+	public void setMessage(Label l, String message, Color color) {
+		l.setText(message);
+		l.setTextFill(color);
+		l.setVisible(true);
+	}
+
+	public void showDialog(String title, String headerText, String contentText) {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle(title);
+		alert.setHeaderText(headerText);
+		alert.setContentText(contentText);
+		alert.showAndWait();
+	}
+}	
