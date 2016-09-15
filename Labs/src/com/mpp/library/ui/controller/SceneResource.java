@@ -9,4 +9,6 @@ public interface SceneResource {
 	String BOOK_SCENE_FXML = "../view/BooksView.fxml";
 	String NEW_BOOKCOPY_FXML = "../view/NewBookCopyView.fxml";
 	String CHECKOUT_BOOK_FXML = "../view/CheckoutBookForm.fxml";
+
+	String APP_NAME = "Library Management System";
 }

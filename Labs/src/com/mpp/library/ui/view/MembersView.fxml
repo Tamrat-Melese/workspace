@@ -5,9 +5,15 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.mpp.library.ui.controller.MembersViewController">
+    <GridPane alignment="CENTER"
+              AnchorPane.topAnchor="0"
+              AnchorPane.rightAnchor="0"
+              AnchorPane.leftAnchor="0"
+              AnchorPane.bottomAnchor="0">
+        <Label text="Member List" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+    </GridPane>
 
-
-    <TableView fx:id="tblMemberList" layoutY="80.0" prefHeight="407.0" prefWidth="788.0"
+    <TableView fx:id="tblMemberList"
                  AnchorPane.bottomAnchor="100.0"
                  AnchorPane.leftAnchor="25.0"
                  AnchorPane.rightAnchor="25.0"
@@ -43,5 +49,5 @@
       <Button fx:id="btnAddNewMember" onAction="#goMemberAdd" text="Add"
               AnchorPane.bottomAnchor="25.0"
               AnchorPane.rightAnchor="25.0" />
-      <Label text="Member List" AnchorPane.leftAnchor="25.0" />
+
 </AnchorPane>
