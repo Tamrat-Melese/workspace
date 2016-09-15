@@ -28,9 +28,6 @@ public final class CheckoutBookController extends Controller<CheckoutRecord> {
 		if (member == null){
 			throw new Exception("Libray Member not found with ID= "+ memberID);
 		}
-		// TODO: ID
-		CheckoutRecord checkoutRecord = new CheckoutRecord(member.getID(), member);
-		member.addCheckoutRecord(checkoutRecord);
 		
 		BookController bookController = BookController.getInstance();
 		Book book = bookController.searchBook(isbn);
@@ -41,6 +38,10 @@ public final class CheckoutBookController extends Controller<CheckoutRecord> {
 		if (!book.isAvailabile()){
 			throw new Exception("BookCopy not available with ISBN= "+ isbn);
 		}
+		
+
+		CheckoutRecord checkoutRecord = new CheckoutRecord(getUniqueID(), member);
+		member.addCheckoutRecord(checkoutRecord);
 		BookCopy bookCopy = book.getNextAvailableCopy();
 		
 		LocalDate checkoutDate = LocalDate.of(2016,9,14);

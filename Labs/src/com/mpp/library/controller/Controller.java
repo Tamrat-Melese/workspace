@@ -8,9 +8,14 @@ import com.mpp.library.entity.Entity;
 
 abstract class Controller<E extends Entity> {
 	public DataAccess<String, E> entitys = new DataAccessImpl<>();
-	
+	private int uniqueID = 0; 
+
 	public Controller() {
 		super();
+	}
+	
+	public String getUniqueID() {
+		return String.valueOf(++uniqueID);
 	}
 	
 	

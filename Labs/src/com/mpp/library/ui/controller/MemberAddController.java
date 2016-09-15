@@ -1,6 +1,7 @@
 package com.mpp.library.ui.controller;
 
 
+import com.mpp.library.controller.UserController;
 import com.mpp.library.entity.Address;
 import com.mpp.library.entity.Person;
 import com.mpp.library.stage.AddNewMemberStage;
@@ -48,6 +49,8 @@ public class MemberAddController implements Initializable{
 	@FXML
 	private CheckBox cbMember;
 	
+	private UserController userController = UserController.getInstance();
+	
 	public void setData(){
 		String[] states = {"California", "Alabama", "Arkansas", "Arizona", "Alaska", "Colorado",
 				"Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois",
@@ -64,7 +67,6 @@ public class MemberAddController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		setData();
 	}
 	
@@ -82,8 +84,7 @@ public class MemberAddController implements Initializable{
 
 		String vzip = txtZip.getText();
 		Address address = new Address(vstreet, vcity, vstate, vzip);
-			// TODO: get ID for user. hard code to 11111
-		String vmemberId = "11111";
+		String vmemberId = userController.getUniqueID();
 		String vfirstName = txtFirstName.getText();
 		String vlastName = txtLastName.getText();
 		String vphoneNumber = txtPhone.getText();
