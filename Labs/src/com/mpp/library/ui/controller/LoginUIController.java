@@ -75,8 +75,6 @@ public class LoginUIController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		System.out.println("test");
 		String[] messErrorUserName = {"Username cannot blank.", "Username length is at least 3"};
 		String[] messErrorPassword = {"Password cannot blank.", "Password length is at least 3"};
 		checkValidTextField(txtUsername, lblUsernameError, messErrorUserName);
