@@ -9,7 +9,10 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.mpp.library.ui.controller.BookUIController">
     <GridPane vgap="10" hgap="30" alignment="CENTER"
-              AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+              AnchorPane.bottomAnchor="0"
+              AnchorPane.leftAnchor="0"
+              AnchorPane.rightAnchor="0"
+              AnchorPane.topAnchor="0">
         <padding>
             <Insets top="10" right="10" bottom="10" left="10" />
         </padding>

@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
@@ -19,6 +20,9 @@ public class MembersViewController implements Initializable{
 
     @FXML
     private Button btnAddNewMember;
+
+	@FXML
+	private TableColumn address;
     
     @FXML
     void goMemberAdd(ActionEvent event) throws Exception {
@@ -29,6 +33,7 @@ public class MembersViewController implements Initializable{
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		address.prefWidthProperty().bind(tblMemberList.widthProperty().subtract(440));
 		// TODO: get person in database
 	}
 }
