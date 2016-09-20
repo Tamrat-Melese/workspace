@@ -1,39 +1,15 @@
-package com.mpp.lab7.prob1.partB;
-
-public class Employee {
-	private String name;
-	private int salary;
-
-	public Employee(String name, int salary) {
-		this.name = name;
-		this.salary = salary;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getSalary() {
-		return salary;
-	}
-
-	public void setSalary(int salary) {
-		this.salary = salary;
-	}
-
-	@Override
-	public String toString() {
-		return "(" + name + ", " + salary + ")";
-	}
+ Explain, in each case, what is  wrong with the solution. 
+ Place each of your answers in a text file in the relevant package.
+ 
+The problem with this solution is that class Employee has an overloading method 'equals()'.
+But it should be overriding java.lang.Object 'equals()' method. 
+And we should also override hashCode() method since equal objects has equal hashCode.
 
 //	public boolean equals(Employee e) {
 //		return e.name.equals(name) && e.salary == salary;
 //	}
 
+Add the below code to Employee.java
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -42,7 +18,7 @@ public class Employee {
 		result = prime * result + salary;
 		return result;
 	}
-
+	
 	/**
 	 * An Employee instance is considered to be a duplicate of another Employee
 	 * instance if the two instances have the same name and salary.
@@ -65,5 +41,3 @@ public class Employee {
 			return false;
 		return true;
 	}
-
-}
