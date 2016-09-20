@@ -1,4 +1,4 @@
-package com.mpp.lab7;
+package com.mpp.lab7.prob2;
 
 import java.util.ArrayList;
 import java.util.List;
