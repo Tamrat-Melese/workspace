@@ -1,1 +1,2 @@
-Serializable, Cloneable, Iterable<E>, Collection<E>, List<E>, RandomAccess
+implement: Serializable, Cloneable, Iterable<E>, Collection<E>, List<E>, RandomAccess
+extend: AbstractList<E>
