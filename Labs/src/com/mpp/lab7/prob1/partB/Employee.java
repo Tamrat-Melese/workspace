@@ -43,17 +43,13 @@ public class Employee {
 		return result;
 	}
 
-	/**
-	 * An Employee instance is considered to be a duplicate of another Employee
-	 * instance if the two instances have the same name and salary.
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
 			return false;
-		if (!(obj instanceof Employee))
+		if (getClass() != obj.getClass())
 			return false;
 		Employee other = (Employee) obj;
 		if (name == null) {

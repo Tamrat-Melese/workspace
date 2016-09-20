@@ -38,7 +38,7 @@ Modify Employee.java according to the below code
 			return true;
 		if (obj == null)
 			return false;
-		if (!(obj instanceof Employee))
+		if (getClass() != obj.getClass())
 			return false;
 		Employee other = (Employee) obj;
 		if (name == null) {
