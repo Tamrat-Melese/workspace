@@ -1,4 +1,4 @@
-package edu.mum.cs.cs401.examples.java8.prob4;
+package com.mpp.lab7.prob4;
 
 import java.util.Arrays;
 import java.util.List;
