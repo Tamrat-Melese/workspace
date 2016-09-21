@@ -20,9 +20,9 @@ public class EmployeeInfo {
 			if(!tracker.containsKey(e)) {
 				tracker.put(e, e);
 				noDupsList.add(e);
-			} else {
+			}/* else {
 				tracker.get(e).setVisited(true);
-			}
+			}*/
 		}
 		return noDupsList;
 	}
