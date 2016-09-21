@@ -16,11 +16,6 @@ public class Rectangle implements Polygon {
 		return sides;
 	}
 
-	@Override
-	public double computePerimeter() {
-		return Arrays.stream(getSides()).sum();
-	}
-
 	public double getLength() {
 		return length;
 	}
