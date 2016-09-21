@@ -9,18 +9,16 @@ public class ForEachExample {
 		List<String> list = Arrays.asList("Hello there", "Goodbye", "Back soon", "Away", "On Vacation",
 				"Everywhere you want to be");
 		
-		Consumer<String> consumer = toUpperCase();
+		//print each element of the list in upper case format
 		list.forEach(consumer);
 
 	}
+	
+	private static Consumer<String> consumer = new Consumer<String>() {
+		@Override
+		public void accept(String t) {
+			System.out.println(t.toUpperCase());
 
-	private static Consumer<String> toUpperCase() {
-		Consumer<String> consumer = new Consumer<String>() {
-			@Override
-			public void accept(String s) {
-				System.out.println(s.toUpperCase());
-			}
-		};
-		return consumer;
-	}
+		}
+	};
 }
