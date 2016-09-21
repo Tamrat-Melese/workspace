@@ -2,7 +2,7 @@ package com.mpp.lab7.prob2;
 
 import java.util.Arrays;
 
-public class EquilateralTriangle implements ClosedCurve {
+public class EquilateralTriangle implements Polygon {
 	/** sides of the triangle, defined so that side1 = side2 = side3 */
 	private double side1;
 	private double side2;
@@ -19,11 +19,6 @@ public class EquilateralTriangle implements ClosedCurve {
 	public double[] getSides() {
 		double[] sides = { side1, side2, side3 };
 		return sides;
-	}
-
-	@Override
-	public double computePerimeter() {
-		return Arrays.stream(getSides()).sum();
 	}
 
 	public double getSide1() {
