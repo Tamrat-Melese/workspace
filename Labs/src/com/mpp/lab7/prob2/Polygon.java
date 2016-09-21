@@ -2,9 +2,7 @@ package com.mpp.lab7.prob2;
 
 public interface Polygon extends ClosedCurve{
 
-	default double[] getSides(){
-		throw new UnsupportedOperationException("getSides");
-	}
+	double[] getSides();
 
 	default double computePerimeter() {
 		double[] lengths = getSides();
