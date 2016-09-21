@@ -1,0 +1,13 @@
+1. When type D is a class
+- If B and C provide a default implementatation 
+ i. Class D redeclares the method itself  (even if unimplemented). 
+ ii. Class D explicitly chooses one of them using interfaceName.super.methodName()
+ 
+2. When type D is an Interface
+When the two interfaces A and B each have a method with the same signature:
+i. If one of the method in the interfaces is a default method, 
+interface D must override the method (or declare it as an abstract method) 
+– can’t simply do nothing.
+ii. If one of the method in the interfaces is a default method, 
+interface D must provide a default method (i.e. an implementation) of this method, 
+or declare the method (even if unimplemented). (This rule requires no special effort.)
