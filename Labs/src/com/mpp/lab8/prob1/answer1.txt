@@ -1,0 +1,75 @@
+1.	
+a.	Name two differences between imperative and functional programming
+I. In imperative programming loop is part of the job 
+but in functional programming recursion is used
+
+II. In imperative reading and understanding the code is not easy 
+but in functional programming the code is clear, straight forward.
+
+III. Imperative mainly focuses on how to do the activity, it goes through 
+every detail steps to write a code but in functional programming 
+simply describes the method without specifying the detail.
+
+b.	Explain the meaning of declarative programming. Give an example.
+Decorative programming describes the method without specifying 
+the detail of how it is done, it describes a set of conditions, 
+and lets the system figure out how to fulfill them.
+
+c.	Explain the difference between functional interface, functor, and closure,
+ and give examples of each using Java 7 syntax
+A functional interface is an interface with only one abstract class.
+
+Functor is a function inside a class and is a typed data structure that encapsulates some value(s) .
+
+Closure in java can be defined as a lambda expression together with 
+the values of the free variables that are captured by the lambda expression. 
+It can also be said that Closure is a term for a block of code 
+with the values of free variable, lambda is a closure.
+
+give examples???
+
+d.	Name three benefits of including functional style programming in Java
+It is stateless, 
+It simply takes parameters passed to them
+Describes the method without specifying the why
+Functions are referred first class citizens. Can be passed as parameter and can be referenced.
+e.	Express the functions defined below using Java 8  lambda notation:
+e.i.	f(x) = x + 2x2  
+x → x + 2 * x * x
+
+e.ii.	g(x,y) = y – x + xy
+(x,y) → y – x  + Math.pow(x,y)
+
+e.iii.	h(x,y,z) = z – (x + y)
+(x,y,z) → z – (x + y)
+
+f.	For each lambda expression below, name the parameters and the free variables.
+i.  Runnable  r = () →
+	{
+		int[][] products = new int[s][t];
+		for (int i = 0; i <s; i++) {
+			for(int j = i + 1; j < t; j++) { 
+				products[i][j] = i * j; 
+			}    
+		}
+	}
+"s & t" are free variables and There are no parameters.
+
+ii. BiFunction<U, V, R> f = (double u, double v) →
+ b
+∫ cos⁡ux sin⁡vx dx
+a
+(Note: the right hand side of the “→” is mathematical notation, 
+not Java, but it can be converted to a large block of Java code 
+having the same free variables. 
+See lecture code to review the BiFunction functional interface.)
+
+iii.Comparator<String> comp = (s, t) →
+	{
+		if(ignoreCase == true)	{
+			return s.compareToIgnoreCase(t);
+		} else {
+			return s.compareTo(t);
+		}
+	}	
+"ignoreCase" is free variable and "s & t" are parameters.
