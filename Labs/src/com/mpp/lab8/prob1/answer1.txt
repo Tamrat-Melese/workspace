@@ -15,18 +15,18 @@ Decorative programming describes the method without specifying
 the detail of how it is done, it describes a set of conditions, 
 and lets the system figure out how to fulfill them.
 
-c.	Explain the difference between functional interface, functor, and closure,
- and give examples of each using Java 7 syntax
+examples???
+
+c.	Explain the difference between functional interface, functor, and closure, 
+and give examples of each using Java 7 syntax
 A functional interface is an interface with only one abstract class.
-
 Functor is a function inside a class and is a typed data structure that encapsulates some value(s) .
-
 Closure in java can be defined as a lambda expression together with 
 the values of the free variables that are captured by the lambda expression. 
 It can also be said that Closure is a term for a block of code 
 with the values of free variable, lambda is a closure.
 
-give examples???
+examples???
 
 d.	Name three benefits of including functional style programming in Java
 It is stateless, 
@@ -34,13 +34,13 @@ It simply takes parameters passed to them
 Describes the method without specifying the why
 Functions are referred first class citizens. Can be passed as parameter and can be referenced.
 e.	Express the functions defined below using Java 8  lambda notation:
-e.i.	f(x) = x + 2x2  
+i.	f(x) = x + 2x2  
 x → x + 2 * x * x
 
-e.ii.	g(x,y) = y – x + xy
+ii.	g(x,y) = y – x + xy
 (x,y) → y – x  + Math.pow(x,y)
 
-e.iii.	h(x,y,z) = z – (x + y)
+iii.	h(x,y,z) = z – (x + y)
 (x,y,z) → z – (x + y)
 
 f.	For each lambda expression below, name the parameters and the free variables.
@@ -53,16 +53,13 @@ i.  Runnable  r = () →
 			}    
 		}
 	}
-"s & t" are free variables and There are no parameters.
+"s & t" are free variables and it doesn't have parameters.
 
 ii. BiFunction<U, V, R> f = (double u, double v) →
  b
 ∫ cos⁡ux sin⁡vx dx
 a
-(Note: the right hand side of the “→” is mathematical notation, 
-not Java, but it can be converted to a large block of Java code 
-having the same free variables. 
-See lecture code to review the BiFunction functional interface.)
+"a & b" are free variables and "u & v" are  parameters.
 
 iii.Comparator<String> comp = (s, t) →
 	{
@@ -73,3 +70,18 @@ iii.Comparator<String> comp = (s, t) →
 		}
 	}	
 "ignoreCase" is free variable and "s & t" are parameters.
+
+
+h.	An example of a method reference is  
+System.out::println
+Do the following:
+i.	Convert this method reference to a lambda expression. 
+s → System.out.println(s)
+
+ii.	Determine which type of method reference this is (in the lecture three 
+different types of method reference were mentioned). Explain carefully.
+
+staticObject::instanceMethod
+"System" is a class in Java.lang package
+"System.out" is a static object of printStream class in java.io package and 
+"println()" is an instance method of the printStream class
