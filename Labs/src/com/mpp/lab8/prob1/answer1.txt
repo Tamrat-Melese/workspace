@@ -15,7 +15,17 @@ Decorative programming describes the method without specifying
 the detail of how it is done, it describes a set of conditions, 
 and lets the system figure out how to fulfill them.
 
-examples???
+Exmaple
+Imperative example
+List<Integer> giventList =  new ArrayList<Integer>(Arrays.asList(5,8,7,9,5,6));
+List<Integer> resultList =  new ArrayList();
+foreach(Element e : givenList){
+	if(e % 2 == 1)
+		resultList.add(e)
+}
+
+Declarative example
+		newList = startList.filter(num -> num%2 ==1)
 
 c.Explain the difference between functional interface, functor, and closure, 
 and give examples of each using Java 7 syntax
