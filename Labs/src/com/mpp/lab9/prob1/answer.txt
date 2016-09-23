@@ -1,0 +1,31 @@
+1.	Short Answer: 
+a.	What happens when the following code is executed?
+public static void main(String[] args) {
+	IntStream ones = IntStream.generate(() -> 1).distinct();
+	ones.forEach(System.out::println);
+}
+
+The IntStream generates infinite 1's and the forEach() try to print distinct values.
+So, the printStream will print the first 1 and loop forever. 
+The execution of the code is in infinite loop. Since,  
+
+Explain. What would be a quick way to fix this? 
+add limit() to the stream.
+
+b. 	You have a Stream of Strings called stringStream consisting of the values “Bill”, 
+	“Thomas”, and “Mary”. Write the (one line of) code necessary to print this stream to the 
+	console so that the output looks like this:
+	Bill, Thomas, Mary
+{
+	Stream<String> stringStream = Stream.of("Bill", "Thomas", "Mary");
+	System.out.println(stringStream.collect(Collectors.joining(", ")));
+}
+
+c. 	You have a Streamof Integers called myIntStream and you need to output both the
+maximum and minimum values. Write code that efficiently accomplishes this. 
+{
+	Stream<Integer> myIntStream = Stream.of(1, 2, 3, 4, 5, 6);
+	IntSummaryStatistics summary = myIntStream.collect(Collectors.summarizingInt(n -> n));
+	System.out.println("max " + summary.getMax());
+	System.out.println("min " + summary.getMin());
+}
