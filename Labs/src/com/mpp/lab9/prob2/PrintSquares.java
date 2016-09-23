@@ -10,7 +10,7 @@ public class PrintSquares {
 	
 	public static void printSquares(int num) {
 		IntStream
-				.rangeClosed(1, num)
+				.iterate(1, n -> n + 1 ).limit(num)
 				.map(n -> n * n)
 				.forEach(System.out::println);
 	}
