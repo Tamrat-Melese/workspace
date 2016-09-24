@@ -1,4 +1,4 @@
-package edu.mum.cs.cs401.examples.java8.lesson9.Five;
+package com.mpp.lab9.prob5;
 
 import java.util.List;
 import java.util.function.BiFunction;

@@ -1,4 +1,4 @@
-package edu.mum.cs.cs401.examples.java8.lesson9.Five;
+package com.mpp.lab9.prob5;
 
 public class Employee {
 	String firstName, lastName;
@@ -11,17 +11,10 @@ public class Employee {
 		this.salary = s;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder("<");
-		sb.append("first name: ");
-		sb.append(firstName);
-		sb.append(" last name: ");
-		sb.append(lastName);
-		sb.append(" salary: ");
-		sb.append("" + salary + ">");
-		return sb.toString();
-
+	public String getFullName() {
+		StringBuilder fullName = new StringBuilder();
+		fullName.append(firstName).append(" ").append(lastName);
+		return fullName.toString();
 	}
 
 	public String getFirstName() {
@@ -46,5 +39,18 @@ public class Employee {
 
 	public void setSalary(int salary) {
 		this.salary = salary;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("<");
+		sb.append("first name: ");
+		sb.append(firstName);
+		sb.append(" last name: ");
+		sb.append(lastName);
+		sb.append(" salary: ");
+		sb.append("" + salary + ">");
+		return sb.toString();
+
 	}
 }

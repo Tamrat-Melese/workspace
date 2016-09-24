@@ -1,8 +1,16 @@
-package edu.mum.cs.cs401.examples.java8.lesson9.Five;
+package com.mpp.lab9.prob5;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Main {
+	
+	/*
+	 * expected output is: Alice Richards, Joe Stevens, John Sims, Steven Walters
+	 */
 
 	public static void main(String[] args) {
 		List<Employee> list = Arrays.asList(new Employee("Joe", "Davis", 120000), new Employee("John", "Sims", 110000),
@@ -10,37 +18,21 @@ public class Main {
 				new Employee("Joe", "Cummings", 760000), new Employee("Steven", "Walters", 135000),
 				new Employee("Thomas", "Blake", 111000), new Employee("Alice", "Richards", 101000),
 				new Employee("Donald", "Trump", 100000));
-
-		// Modify it to print last names starting with N-Z
-
-		int count = 0;
-
 		
 		//=================== 5a =====================================
+		Function<Employee, String> byName = e -> e.getFullName();
+		Function<Employee, Integer> bySalary = e -> e.getSalary();
 		
-		// List<Employee> empList = list.stream().sorted((e1, e2) ->
-		// e1.getFirstName().compareTo(e2.getFirstName()))
-		// .filter(lname -> lname.getLastName().startsWith("S")).filter(sal ->
-		// sal.getSalary() > 100000)
-		// .collect(Collectors.toList());
-		// for (Employee e : empList) {
-		// System.out.print(e.firstName + " " + e.lastName);
-		// if (!(count == empList.size() - 1)) {
-		// System.out.print(", ");
-		// }
-		// count++;
-		// }
-
+		String collect = list.stream()
+				.sorted(Comparator.comparing(byName).thenComparing(bySalary))
+				.filter(e -> e.getSalary() > 100000)
+				.filter(e -> e.getLastName().charAt(0) > 'M')
+				.filter(e -> e.getLastName().charAt(0) <= 'Z')
+				.map(e -> e.getFullName())
+				.collect(Collectors.joining(", "));
+		System.out.println(collect);
 		
 		//=================== 5b =====================================
-		List<Employee> listSorted = LambdaLibrary.NAME_LIST.apply(list, "S");
-		
-		for (Employee employee : listSorted) {
-			System.out.print(employee.firstName + "  " + employee.lastName);
-			if (!(count == listSorted.size() - 1))
-				System.out.print(", ");
-			count++;
-		}
 	
 	}
 
