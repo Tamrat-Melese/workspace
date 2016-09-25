@@ -16,7 +16,6 @@ public class Main {
                 new Employee("Thomas", "Blake", 111000),
                 new Employee("Alice", "Richards", 101000),
                 new Employee("Donald", "Trump", 100000));
-
         // print the number of Employees in list whose salary > 100000 and whose
         // last name begins
         // with a letter that comes after the letter 'E'
@@ -31,7 +30,6 @@ public class Main {
         // with
         // salary > 85000 and whose first name begins with a letter that comes
         // before the letter 'R'
-
         list
                 .stream()
                 .filter(LambdaLibrary.salaryGreaterThan(85000))
@@ -41,5 +39,4 @@ public class Main {
                 .forEach(System.out::println);
 
     }
-
 }
