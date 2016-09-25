@@ -1,7 +1,7 @@
 package com.mpp.lab9.prob6;
 
 public class Employee {
-	String firstName, lastName;
+	private String firstName, lastName;
 
 	int salary;
 

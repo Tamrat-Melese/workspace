@@ -1,6 +1,5 @@
 package com.mpp.lab9.prob6;
 
-import java.util.Comparator;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -14,6 +13,6 @@ public class LambdaLibrary {
     }
 
     public static Function<Employee, String> fullNameInCapital(){
-        return e -> (e.firstName + " " + e.getLastName()).toUpperCase();
+        return e -> (e.getFirstName() + " " + e.getLastName()).toUpperCase();
     }
 }
