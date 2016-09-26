@@ -22,8 +22,9 @@ public class StreamUnion {
 		}
 	}
 	
-	/* transform the list [{“A”, “B”}, {“D”}, {“1”, “3”, “5”}] 
-	 * to the set {“A”, “B”, “D”, “1”, “3”, “5”}.
+	/*
+	 * transform the list [{â€œAâ€, â€œBâ€}, {â€œDâ€}, {â€œ1â€, â€œ3â€, â€œ5â€}] 
+	 * to the set {â€œAâ€, â€œBâ€, â€œDâ€, â€œ1â€, â€œ3â€, â€œ5â€}.
 	 */
 	public static Set<String> union(List<Set<String>>sets){
 		String str = sets.stream().map(s -> s.stream().collect(Collectors.joining(", ")))
