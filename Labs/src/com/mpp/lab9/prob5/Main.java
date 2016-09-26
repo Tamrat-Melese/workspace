@@ -1,9 +1,7 @@
 package com.mpp.lab9.prob5;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -20,20 +18,19 @@ public class Main {
 				new Employee("Donald", "Trump", 100000));
 		
 		//=================== 5a =====================================
-		Function<Employee, String> byName = e -> e.getFullName();
-		Function<Employee, Integer> bySalary = e -> e.getSalary();
 		
 		String collect = list.stream()
-				.sorted(Comparator.comparing(byName).thenComparing(bySalary))
 				.filter(e -> e.getSalary() > 100000)
 				.filter(e -> e.getLastName().charAt(0) > 'M')
 				.filter(e -> e.getLastName().charAt(0) <= 'Z')
 				.map(e -> e.getFullName())
+				.sorted()
 				.collect(Collectors.joining(", "));
 		System.out.println(collect);
 		
 		//=================== 5b =====================================
-	
+		String result = LambdaLibrary.NAME_LIST.apply(list, 'M', 'Z', 100000);
+		System.out.println(result);
 	}
 
 }
