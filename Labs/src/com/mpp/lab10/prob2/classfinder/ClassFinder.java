@@ -16,7 +16,7 @@ public class ClassFinder {
 	    private static final String BAD_PACKAGE_ERROR = "Unable to get resources from path '%s'. Are you sure the package '%s' exists?";
 	    
 	    public static void main(String[] args) {
-			List<Class<?>> classes = find("lesson10.labs.prob2.javapackage");
+			List<Class<?>> classes = find("com.mpp.lab10.prob2.javapackage");
 			classes.forEach(cl -> System.out.println(cl.getName()));
 		}
 
