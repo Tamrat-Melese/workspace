@@ -1,6 +1,6 @@
 package com.mpp.lab10.prob2.javapackage;
 
-import lesson10.labsolns.prob2.bugreporter.BugReport;
+import com.mpp.lab10.prob2.bugreporter.BugReport;
 
 @BugReport(assignedTo="Joe Smith", severity=2, reportedBy="Corazza", description="computePerimeter incorrect")
 public class Rectangle implements ClosedCurve {
