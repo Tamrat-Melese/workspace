@@ -3,10 +3,6 @@ package com.mpp.lab10.prob3;
 //Show the methods are not threadsafe.
 //Then modify so that they are threadsafe.
 public class Queue {
-	class Node {
-		Object value;
-		Node next;
-	}
 	private Node head;
 	private Node tail;
 	public void add(Object newValue) {
@@ -23,7 +19,14 @@ public class Queue {
 		return n.value;
 	}
 
-	public static void main(String[] args) {
-
+	public int countElement(){
+		if(head == null) return 0;
+		int count = 0;
+		Node n = head;
+		while(n != null){
+			count++;
+			n = n.next;
+		}
+		return count;
 	}
 }
