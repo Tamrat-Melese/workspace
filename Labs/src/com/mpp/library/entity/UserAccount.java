@@ -1,38 +1,42 @@
 package com.mpp.library.entity;
 
-public class UserAccount {
-	private String username;
-	private String password;
-	private String role;
+public class UserAccount implements Entity {
+    private Person person;
+    private String username;
+    private String password;
 
-	public UserAccount(String username, String password, String role) {
-		this.username = username;
-		this.password = password;
-		this.role = role;
-	}
+    public UserAccount(Person person, String username, String password) {
+        this.person = person;
+        this.username = username;
+        this.password = password;
+    }
 
-	public String getUsername() {
+	@Override
+	public String getID() {
 		return username;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public Person getPerson() {
+        return person;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setPerson(Person person) {
+        this.person = person;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public String getRole() {
-		return role;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public void setRole(String role) {
-		this.role = role;
-	}
+    public String getPassword() {
+        return password;
+    }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
